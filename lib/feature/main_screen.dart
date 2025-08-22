@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zone_express/feature/orders/screen/order_screen.dart';
 import 'dashboard/screens/dashboard_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -14,7 +15,7 @@ class _MainScreenState extends State<MainScreen> {
   // Pages for each tab
   final List<Widget> _pages = [
     const DashboardScreen(), // Home
-    const Center(child: Text("Orders Page")), // TODO: Replace with OrdersScreen
+    const OrderScreen(), // Orders
     const Center(
       child: Text("Analytics Page"),
     ), // TODO: Replace with AnalyticsScreen
@@ -38,7 +39,7 @@ class _MainScreenState extends State<MainScreen> {
         onTap: _onItemTapped,
         type: BottomNavigationBarType.fixed,
         backgroundColor: const Color(0xFFF5F2E5), // light cream bg
-        selectedItemColor: const Color(0xFF9E8F47), // gold/olive for selected
+        selectedItemColor: Colors.black87, // gold/olive for selected
         unselectedItemColor: const Color(0xFF9E8F47).withOpacity(0.6),
         showUnselectedLabels: true,
         items: const [
