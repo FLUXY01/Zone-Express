@@ -39,8 +39,12 @@ flutter:
      - assets/images/delivery_img/
      - assets/images/courier_img/
      - assets/video/intro_video/intro_zone_express.mp4
+     - assets/images/account_img/
 
   fonts:
      - family: PlusJakarta
        fonts:
          - asset: assets/fonts/PlusJakartaSans-Medium.ttf
+     - family: WorkSans
+       fonts:
+         - asset: assets/fonts/WorkSans-Medium.ttf

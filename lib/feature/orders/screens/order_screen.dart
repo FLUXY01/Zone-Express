@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
@@ -7,6 +8,7 @@ import 'package:zone_express/feature/orders/controller/order_controller.dart';
 import 'package:zone_express/feature/orders/widget/custom_textfield.dart';
 
 import '../widget/custom_button.dart';
+import 'courier_opitons.dart';
 
 class OrderScreen extends StatefulWidget {
   const OrderScreen({super.key});
@@ -258,7 +260,7 @@ class _OrderScreenState extends State<OrderScreen> {
                 width: screenWidth * 0.9,
                 child: CommonButtonYellow(
                   label: "Schedule Pickup",
-                  onPressed: () {},
+                  onPressed: () => Get.to(CourierOptions()),
                 ),
               ),
               SizedBox(height: screenHeight * 0.02),
