@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:zone_express/feature/orders/screens/checkout_screen.dart';
-
-import '../../../common/comm_button_yellow.dart';
+import '../../../../common/comm_button_yellow.dart';
+import '../../../../utils/constants/font.dart';
+import '../../../../utils/constants/images.dart';
+import 'checkout_screen.dart';
 
 class CourierOptions extends StatefulWidget {
   const CourierOptions({super.key});
@@ -20,12 +21,12 @@ class _CourierOptionsState extends State<CourierOptions> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text(
+        title: Text(
           "Courier Options",
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
-            // fontFamily: Tfonts.plusJakartaSansFont,
+            fontFamily: Tfonts.plusJakartaSansFont,
           ),
         ),
       ),
@@ -44,6 +45,7 @@ class _CourierOptionsState extends State<CourierOptions> {
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: Colors.black87,
+                      fontFamily: Tfonts.plusJakartaSansFont,
                     ),
                   ),
                 ),
@@ -54,7 +56,7 @@ class _CourierOptionsState extends State<CourierOptions> {
                   Padding(
                     padding: const EdgeInsets.only(left: 16.0),
                     child: SvgPicture.asset(
-                      'assets/images/courier_img/bike_icon.svg',
+                      TImage.bike_icon,
                       width: screenWidth * 0.2,
                       height: screenWidth * 0.2,
                     ),
@@ -70,7 +72,7 @@ class _CourierOptionsState extends State<CourierOptions> {
                               "Bike",
                               style: TextStyle(
                                 fontSize: 18,
-                                fontFamily: 'Plus Jakarta Sans',
+                                fontFamily: Tfonts.plusJakartaSansFont,
                                 fontWeight: FontWeight.w500,
                                 color: Colors.black87,
                               ),
@@ -86,7 +88,7 @@ class _CourierOptionsState extends State<CourierOptions> {
                               style: TextStyle(
                                 fontSize: 14,
                                 color: Color(0xFF9E8F47),
-                                fontFamily: 'Plus Jakarta Sans',
+                                fontFamily: Tfonts.plusJakartaSansFont,
                               ),
                             ),
                           ),
@@ -110,7 +112,7 @@ class _CourierOptionsState extends State<CourierOptions> {
                   Padding(
                     padding: const EdgeInsets.only(left: 16.0),
                     child: SvgPicture.asset(
-                      'assets/images/courier_img/car_icon.svg',
+                      TImage.car_icon,
                       width: screenWidth * 0.2,
                       height: screenWidth * 0.2,
                     ),
@@ -126,7 +128,7 @@ class _CourierOptionsState extends State<CourierOptions> {
                               "Car",
                               style: TextStyle(
                                 fontSize: 18,
-                                fontFamily: 'Plus Jakarta Sans',
+                                fontFamily: Tfonts.plusJakartaSansFont,
                                 fontWeight: FontWeight.w500,
                                 color: Colors.black87,
                               ),
@@ -142,7 +144,7 @@ class _CourierOptionsState extends State<CourierOptions> {
                               style: TextStyle(
                                 fontSize: 14,
                                 color: Color(0xFF9E8F47),
-                                fontFamily: 'Plus Jakarta Sans',
+                                fontFamily: Tfonts.plusJakartaSansFont,
                               ),
                             ),
                           ),
@@ -166,7 +168,7 @@ class _CourierOptionsState extends State<CourierOptions> {
                   Padding(
                     padding: const EdgeInsets.only(left: 16.0),
                     child: SvgPicture.asset(
-                      'assets/images/courier_img/van_icon.svg',
+                      TImage.van_icon,
                       width: screenWidth * 0.2,
                       height: screenWidth * 0.2,
                     ),
@@ -182,7 +184,7 @@ class _CourierOptionsState extends State<CourierOptions> {
                               "Van",
                               style: TextStyle(
                                 fontSize: 18,
-                                fontFamily: 'Plus Jakarta Sans',
+                                fontFamily: Tfonts.plusJakartaSansFont,
                                 fontWeight: FontWeight.w500,
                                 color: Colors.black87,
                               ),
@@ -198,7 +200,7 @@ class _CourierOptionsState extends State<CourierOptions> {
                               style: TextStyle(
                                 fontSize: 14,
                                 color: Color(0xFF9E8F47),
-                                fontFamily: 'Plus Jakarta Sans',
+                                fontFamily: Tfonts.plusJakartaSansFont,
                               ),
                             ),
                           ),
@@ -238,9 +240,7 @@ class _CourierOptionsState extends State<CourierOptions> {
                     padding: const EdgeInsets.only(left: 16.0),
                     child: CircleAvatar(
                       radius: screenWidth * 0.1,
-                      backgroundImage: AssetImage(
-                        'assets/images/courier_img/courier_1.png',
-                      ),
+                      backgroundImage: AssetImage(TImage.courier_boy),
                       backgroundColor: Colors.transparent,
                     ),
                   ),
@@ -256,7 +256,7 @@ class _CourierOptionsState extends State<CourierOptions> {
                                 "Ethan Carter",
                                 style: TextStyle(
                                   fontSize: 16,
-                                  fontFamily: 'Plus Jakarta Sans',
+                                  fontFamily: Tfonts.plusJakartaSansFont,
                                   fontWeight: FontWeight.w500,
                                   color: Colors.black87,
                                 ),
@@ -273,7 +273,7 @@ class _CourierOptionsState extends State<CourierOptions> {
                               style: TextStyle(
                                 fontSize: 14,
                                 color: Color(0xFF9E8F47),
-                                fontFamily: 'Plus Jakarta Sans',
+                                fontFamily: Tfonts.plusJakartaSansFont,
                               ),
                             ),
                           ),
@@ -298,9 +298,7 @@ class _CourierOptionsState extends State<CourierOptions> {
                     padding: const EdgeInsets.only(left: 16.0),
                     child: CircleAvatar(
                       radius: screenWidth * 0.1,
-                      backgroundImage: AssetImage(
-                        'assets/images/courier_img/courier_girl.png',
-                      ),
+                      backgroundImage: AssetImage(TImage.courier_girl),
                       backgroundColor: Colors.transparent,
                     ),
                   ),
@@ -316,7 +314,7 @@ class _CourierOptionsState extends State<CourierOptions> {
                                 "Olivia Bennett",
                                 style: TextStyle(
                                   fontSize: 16,
-                                  fontFamily: 'Plus Jakarta Sans',
+                                  fontFamily: Tfonts.plusJakartaSansFont,
                                   fontWeight: FontWeight.w500,
                                   color: Colors.black87,
                                 ),
@@ -333,7 +331,7 @@ class _CourierOptionsState extends State<CourierOptions> {
                               style: TextStyle(
                                 fontSize: 14,
                                 color: Color(0xFF9E8F47),
-                                fontFamily: 'Plus Jakarta Sans',
+                                fontFamily: Tfonts.plusJakartaSansFont,
                               ),
                             ),
                           ),
@@ -358,9 +356,7 @@ class _CourierOptionsState extends State<CourierOptions> {
                     padding: const EdgeInsets.only(left: 16.0),
                     child: CircleAvatar(
                       radius: screenWidth * 0.1,
-                      backgroundImage: AssetImage(
-                        'assets/images/courier_img/courier_1.png',
-                      ),
+                      backgroundImage: AssetImage(TImage.courier_boy),
                       backgroundColor: Colors.transparent,
                     ),
                   ),
@@ -376,7 +372,7 @@ class _CourierOptionsState extends State<CourierOptions> {
                                 "Noah Thompson",
                                 style: TextStyle(
                                   fontSize: 16,
-                                  fontFamily: 'Plus Jakarta Sans',
+                                  fontFamily: Tfonts.plusJakartaSansFont,
                                   fontWeight: FontWeight.w500,
                                   color: Colors.black87,
                                 ),
@@ -393,7 +389,7 @@ class _CourierOptionsState extends State<CourierOptions> {
                               style: TextStyle(
                                 fontSize: 14,
                                 color: Color(0xFF9E8F47),
-                                fontFamily: 'Plus Jakarta Sans',
+                                fontFamily: Tfonts.plusJakartaSansFont,
                               ),
                             ),
                           ),

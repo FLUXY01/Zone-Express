@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:zone_express/common/common_button.dart';
-import 'package:zone_express/feature/dashboard/screens/dashboard_screen.dart';
-import 'package:zone_express/feature/main_screen.dart';
+import 'package:zone_express/feature/User/login/screen/login_email_screen.dart';
+import 'package:zone_express/feature/User/login/screen/signup_email_screen.dart';
 import 'package:zone_express/utils/constants/font.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+/// Enum for choices
+enum ChoiceType { email, social, guest, login }
+
+class ChoiceScreen extends StatefulWidget {
+  const ChoiceScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<ChoiceScreen> createState() => _ChoiceScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  int? pressedIndex;
+class _ChoiceScreenState extends State<ChoiceScreen> {
+  ChoiceType? pressed; // current pressed button
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment:
-              MainAxisAlignment.spaceBetween, // pushes content & footer apart
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
               children: [
@@ -52,50 +53,103 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.05),
+
+                // Email Button
                 SizedBox(
                   width: screenWidth * 0.9,
                   child: CommonButton(
                     icon: Icons.email_outlined,
                     label: "Continue with Email",
-                    isPressed: pressedIndex == 0,
+                    isPressed: pressed == ChoiceType.email,
                     onPressed: () {
                       setState(() {
-                        pressedIndex = 0;
+                        pressed = ChoiceType.email;
                       });
-                      Get.off(() => const MainScreen());
+                      Get.to(() => const SignUpScreen());
                     },
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.02),
+
+                // Social Button
                 SizedBox(
                   width: screenWidth * 0.9,
                   child: CommonButton(
-                    icon: Icons.login,
+                    icon: Icons.people_alt_outlined,
                     label: "Continue with Social",
-                    isPressed: pressedIndex == 1,
+                    isPressed: pressed == ChoiceType.social,
                     onPressed: () {
                       setState(() {
-                        pressedIndex = 1;
+                        pressed = ChoiceType.social;
                       });
                     },
                   ),
                 ),
                 SizedBox(height: screenHeight * 0.02),
+
+                // Guest Button
                 SizedBox(
                   width: screenWidth * 0.9,
                   child: CommonButton(
                     icon: Icons.person_2_outlined,
                     label: "Continue as Guest",
-                    isPressed: pressedIndex == 2,
+                    isPressed: pressed == ChoiceType.guest,
                     onPressed: () {
                       setState(() {
-                        pressedIndex = 2;
+                        pressed = ChoiceType.guest;
                       });
+                    },
+                  ),
+                ),
+                SizedBox(height: screenHeight * 0.03),
+
+                // Divider with OR
+                Row(
+                  children: const [
+                    Expanded(
+                      child: Divider(
+                        color: Color(0xFFDEDAC5),
+                        thickness: 1,
+                        endIndent: 10,
+                      ),
+                    ),
+                    Text(
+                      "OR",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    Expanded(
+                      child: Divider(
+                        color: Color(0xFFDEDAC5),
+                        thickness: 1,
+                        indent: 10,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: screenHeight * 0.05),
+
+                // Login Button
+                SizedBox(
+                  width: screenWidth * 0.9,
+                  child: CommonButton(
+                    icon: Icons.login_outlined,
+                    label: "Login",
+                    isPressed: pressed == ChoiceType.login,
+                    onPressed: () {
+                      setState(() {
+                        pressed = ChoiceType.login;
+                      });
+                      Get.to(() => const LoginScreen());
                     },
                   ),
                 ),
               ],
             ),
+
+            // Footer Text
             Padding(
               padding: const EdgeInsets.only(bottom: 12),
               child: Text(

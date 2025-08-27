@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 
-class CustomTextField extends StatelessWidget {
+import '../../../../utils/constants/font.dart';
+
+class CustomTextFieldUserLogin extends StatelessWidget {
   final String hintText;
   final TextEditingController controller;
 
-  const CustomTextField({
+  const CustomTextFieldUserLogin({
     Key? key,
     required this.hintText,
     required this.controller,
+    required bool isObscure,
   }) : super(key: key);
 
   @override
@@ -24,7 +27,7 @@ class CustomTextField extends StatelessWidget {
           color: Color(0xFF9E8F47),
           fontSize: 16,
           fontWeight: FontWeight.w500,
-          fontFamily: "Plus Jakarta Sans",
+          fontFamily: Tfonts.plusJakartaSansFont,
         ),
         decoration: InputDecoration(
           hintText: hintText,
@@ -32,7 +35,7 @@ class CustomTextField extends StatelessWidget {
             color: Color(0xFF9E8F47),
             fontSize: 16,
             fontWeight: FontWeight.w500,
-            fontFamily: "Plus Jakarta Sans",
+            fontFamily: Tfonts.plusJakartaSansFont,
           ),
           border: InputBorder.none,
         ),

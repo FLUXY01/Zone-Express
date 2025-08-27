@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../../common/custom_map.dart';
+
+import '../../../../common/custom_map.dart';
+import '../../../../utils/constants/font.dart';
+import '../../../../utils/constants/images.dart';
 
 class TrackingScreen extends StatelessWidget {
   const TrackingScreen({super.key});
@@ -16,7 +19,7 @@ class TrackingScreen extends StatelessWidget {
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
-            fontFamily: 'Plus Jakarta Sans',
+            fontFamily: Tfonts.plusJakartaSansFont,
           ),
         ),
         centerTitle: true,
@@ -43,15 +46,13 @@ class TrackingScreen extends StatelessWidget {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                fontFamily: 'Plus Jakarta Sans',
+                fontFamily: Tfonts.plusJakartaSansFont,
               ),
             ),
           ),
 
           ListTile(
-            leading: SvgPicture.asset(
-              "assets/images/courier_img/truck_icon.svg",
-            ),
+            leading: SvgPicture.asset(TImage.truck_icon),
             title: const Text("In Transit"),
             subtitle: const Text("Arriving in 20 minutes"),
           ),

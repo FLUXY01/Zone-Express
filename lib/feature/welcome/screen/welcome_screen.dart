@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 import 'package:zone_express/common/common_button.dart';
-import 'package:zone_express/feature/login/screen/login_screen.dart';
 import '../../../utils/constants/font.dart';
+import '../../User/login/screen/choice_screen.dart';
 import '../controller/video_controller.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -72,7 +72,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 setState(() {
                   pressedIndex = 0;
                 });
-                Get.off(() => LoginScreen());
+                Get.off(() => ChoiceScreen());
               },
             ),
             SizedBox(height: screenHeight * 0.02),

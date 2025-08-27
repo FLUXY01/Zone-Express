@@ -4,11 +4,12 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:zone_express/common/comm_button_yellow.dart';
-import 'package:zone_express/feature/orders/controller/order_controller.dart';
-import 'package:zone_express/feature/orders/widget/custom_textfield.dart';
-
+import '../../../../utils/constants/font.dart';
+import '../../../../utils/constants/images.dart';
+import '../controller/order_controller.dart';
 import '../widget/custom_button.dart';
-import 'courier_opitons.dart';
+import '../widget/custom_textfield_orders.dart';
+import 'courier_options.dart';
 
 class OrderScreen extends StatefulWidget {
   const OrderScreen({super.key});
@@ -38,7 +39,7 @@ class _OrderScreenState extends State<OrderScreen> {
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
-                      fontFamily: 'Plus Jakarta Sans',
+                      fontFamily: Tfonts.plusJakartaSansFont,
                     ),
                   ),
                 ),
@@ -46,7 +47,7 @@ class _OrderScreenState extends State<OrderScreen> {
               SizedBox(height: screenHeight * 0.04),
               SizedBox(
                 width: screenWidth * 0.9,
-                child: CustomTextField(
+                child: CustomTextFieldOrders(
                   hintText: "Pickup Address",
                   controller: formController.pickupAddressController,
                 ),
@@ -54,7 +55,7 @@ class _OrderScreenState extends State<OrderScreen> {
               SizedBox(height: screenHeight * 0.02),
               SizedBox(
                 width: screenWidth * 0.9,
-                child: CustomTextField(
+                child: CustomTextFieldOrders(
                   hintText: "Drop-off Address",
                   controller: formController.dropOffAddressController,
                 ),
@@ -69,7 +70,7 @@ class _OrderScreenState extends State<OrderScreen> {
                     style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
-                      fontFamily: 'Plus Jakarta Sans',
+                      fontFamily: Tfonts.plusJakartaSansFont,
                     ),
                   ),
                 ),
@@ -77,7 +78,7 @@ class _OrderScreenState extends State<OrderScreen> {
               SizedBox(height: screenHeight * 0.03),
               SizedBox(
                 width: screenWidth * 0.9,
-                child: CustomTextField(
+                child: CustomTextFieldOrders(
                   hintText: "Size of Package",
                   controller: formController.dropOffAddressController,
                 ),
@@ -85,7 +86,7 @@ class _OrderScreenState extends State<OrderScreen> {
               SizedBox(height: screenHeight * 0.02),
               SizedBox(
                 width: screenWidth * 0.9,
-                child: CustomTextField(
+                child: CustomTextFieldOrders(
                   hintText: "Weight of Package",
                   controller: formController.dropOffAddressController,
                 ),
@@ -100,7 +101,7 @@ class _OrderScreenState extends State<OrderScreen> {
                     style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
-                      fontFamily: 'Plus Jakarta Sans',
+                      fontFamily: Tfonts.plusJakartaSansFont,
                     ),
                   ),
                 ),
@@ -140,7 +141,7 @@ class _OrderScreenState extends State<OrderScreen> {
                     style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
-                      fontFamily: 'Plus Jakarta Sans',
+                      fontFamily: Tfonts.plusJakartaSansFont,
                     ),
                   ),
                 ),
@@ -154,7 +155,7 @@ class _OrderScreenState extends State<OrderScreen> {
                     "Estimated Cost: \$25-\$30",
                     style: TextStyle(
                       fontSize: 16,
-                      fontFamily: 'Plus Jakarta Sans',
+                      fontFamily: Tfonts.plusJakartaSansFont,
                     ),
                   ),
                 ),
@@ -168,7 +169,7 @@ class _OrderScreenState extends State<OrderScreen> {
                     "Courier Recommendations",
                     style: TextStyle(
                       fontSize: 22,
-                      fontFamily: 'Plus Jakarta Sans',
+                      fontFamily: Tfonts.plusJakartaSansFont,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -180,9 +181,7 @@ class _OrderScreenState extends State<OrderScreen> {
                     padding: const EdgeInsets.only(left: 15.0),
                     child: CircleAvatar(
                       radius: 40,
-                      backgroundImage: AssetImage(
-                        'assets/images/courier_img/courier_1.png',
-                      ),
+                      backgroundImage: AssetImage(TImage.courier_boy),
                       backgroundColor: Colors.transparent,
                     ),
                   ),
@@ -195,7 +194,7 @@ class _OrderScreenState extends State<OrderScreen> {
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
-                            fontFamily: 'Plus Jakarta Sans',
+                            fontFamily: Tfonts.plusJakartaSansFont,
                           ),
                         ),
                       ),
@@ -205,7 +204,7 @@ class _OrderScreenState extends State<OrderScreen> {
                           "Fastest Delivery",
                           style: TextStyle(
                             fontSize: 14,
-                            fontFamily: 'Plus Jakarta Sans',
+                            fontFamily: Tfonts.plusJakartaSansFont,
                             color: Color(0xFF9E8F47),
                           ),
                         ),
@@ -221,9 +220,7 @@ class _OrderScreenState extends State<OrderScreen> {
                     padding: const EdgeInsets.only(left: 15.0),
                     child: CircleAvatar(
                       radius: 40,
-                      backgroundImage: AssetImage(
-                        'assets/images/courier_img/courier_1.png',
-                      ),
+                      backgroundImage: AssetImage(TImage.courier_boy),
                       backgroundColor: Colors.transparent,
                     ),
                   ),
@@ -236,7 +233,7 @@ class _OrderScreenState extends State<OrderScreen> {
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w500,
-                            fontFamily: 'Plus Jakarta Sans',
+                            fontFamily: Tfonts.plusJakartaSansFont,
                           ),
                         ),
                       ),
@@ -246,7 +243,7 @@ class _OrderScreenState extends State<OrderScreen> {
                           "Most affordable",
                           style: TextStyle(
                             fontSize: 14,
-                            fontFamily: 'Plus Jakarta Sans',
+                            fontFamily: Tfonts.plusJakartaSansFont,
                             color: Color(0xFF9E8F47),
                           ),
                         ),

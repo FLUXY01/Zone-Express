@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:zone_express/common/comm_button_yellow.dart';
-import 'package:zone_express/common/common_button.dart';
 import 'package:zone_express/common/common_button_grey.dart';
 import 'package:zone_express/utils/constants/font.dart';
+import 'package:zone_express/utils/constants/images.dart';
 
 import '../widget/stat_card.dart';
 
@@ -154,9 +154,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   const Spacer(),
                   Padding(
                     padding: const EdgeInsets.only(right: 8.0),
-                    child: Image(
-                      image: AssetImage('assets/images/delivery_img/truck.png'),
-                    ),
+                    child: Image(image: AssetImage(TImage.truck_image)),
                   ),
                 ],
               ),
@@ -209,11 +207,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   const Spacer(),
                   Padding(
                     padding: const EdgeInsets.only(right: 8.0),
-                    child: Image(
-                      image: AssetImage(
-                        'assets/images/delivery_img/delivered.png',
-                      ),
-                    ),
+                    child: Image(image: AssetImage(TImage.delivered_image)),
                   ),
                 ],
               ),

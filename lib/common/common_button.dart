@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utils/constants/font.dart';
+
 class CommonButton extends StatelessWidget {
   final IconData? icon; // optional now
   final String label;
@@ -35,7 +37,7 @@ class CommonButton extends StatelessWidget {
           style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w500,
-            fontFamily: 'Plus Jakarta Sans',
+            fontFamily: Tfonts.plusJakartaSansFont,
           ),
         ),
       );
@@ -48,7 +50,7 @@ class CommonButton extends StatelessWidget {
           style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w500,
-            fontFamily: 'Plus Jakarta Sans',
+            fontFamily: Tfonts.plusJakartaSansFont,
           ),
         ),
       );

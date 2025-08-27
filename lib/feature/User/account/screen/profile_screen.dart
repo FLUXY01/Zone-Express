@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import '../../../utils/constants/font.dart';
+import '../../../../utils/constants/font.dart';
+import '../../../../utils/constants/images.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -48,9 +48,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             SizedBox(height: screenHeight * 0.02),
             ListTile(
-              leading: SvgPicture.asset(
-                "assets/images/account_img/bell_icon.svg",
-              ),
+              leading: SvgPicture.asset(TImage.bell_icon),
               title: const Text(
                 "Notifications",
                 style: TextStyle(fontFamily: Tfonts.workSansFont, fontSize: 16),
@@ -67,9 +65,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               onTap: () {},
             ),
             ListTile(
-              leading: SvgPicture.asset(
-                "assets/images/account_img/integrations_icon.svg",
-              ),
+              leading: SvgPicture.asset(TImage.integration_icon),
               title: const Text(
                 "Integrations",
                 style: TextStyle(fontFamily: Tfonts.workSansFont, fontSize: 16),
@@ -86,9 +82,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               onTap: () {},
             ),
             ListTile(
-              leading: SvgPicture.asset(
-                "assets/images/account_img/api_icon.svg",
-              ),
+              leading: SvgPicture.asset(TImage.api_icon),
               title: const Text(
                 "API Keys",
                 style: TextStyle(fontFamily: Tfonts.workSansFont, fontSize: 16),
@@ -122,9 +116,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             SizedBox(height: screenHeight * 0.02),
             ListTile(
-              leading: SvgPicture.asset(
-                "assets/images/account_img/language_icon.svg",
-              ),
+              leading: SvgPicture.asset(TImage.language_icon),
               title: const Text(
                 "Language",
                 style: TextStyle(fontFamily: Tfonts.workSansFont, fontSize: 16),
@@ -143,9 +135,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               onTap: () {},
             ),
             ListTile(
-              leading: SvgPicture.asset(
-                "assets/images/account_img/currency_icon.svg",
-              ),
+              leading: SvgPicture.asset(TImage.currency_icon),
               title: const Text(
                 "Currency",
                 style: TextStyle(fontFamily: Tfonts.workSansFont, fontSize: 16),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utils/constants/font.dart';
+
 class CommonButtonGrey extends StatelessWidget {
   final IconData? icon; // optional
   final String label;
@@ -31,7 +33,7 @@ class CommonButtonGrey extends StatelessWidget {
           style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w500,
-            fontFamily: 'Plus Jakarta Sans',
+            fontFamily: Tfonts.plusJakartaSansFont,
           ),
         ),
       );
@@ -44,7 +46,7 @@ class CommonButtonGrey extends StatelessWidget {
           style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w500,
-            fontFamily: 'Plus Jakarta Sans',
+            fontFamily: Tfonts.plusJakartaSansFont,
           ),
         ),
       );

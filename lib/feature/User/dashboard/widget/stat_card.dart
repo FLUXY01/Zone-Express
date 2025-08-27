@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../utils/constants/font.dart';
+
 class StatCard extends StatelessWidget {
   final String title;
   final String value;
@@ -29,7 +31,7 @@ class StatCard extends StatelessWidget {
               fontSize: 16,
               fontWeight: FontWeight.w500,
               color: Colors.black87,
-              fontFamily: 'Plus Jakarta Sans',
+              fontFamily: Tfonts.plusJakartaSansFont,
             ),
           ),
           const SizedBox(height: 8),
@@ -39,7 +41,7 @@ class StatCard extends StatelessWidget {
               fontSize: 28,
               fontWeight: FontWeight.bold,
               color: Colors.black87,
-              fontFamily: 'Plus Jakarta Sans',
+              fontFamily: Tfonts.plusJakartaSansFont,
             ),
           ),
           const SizedBox(height: 8),
@@ -49,7 +51,7 @@ class StatCard extends StatelessWidget {
               fontSize: 16,
               fontWeight: FontWeight.w500,
               color: Colors.green,
-              fontFamily: 'Plus Jakarta Sans',
+              fontFamily: Tfonts.plusJakartaSansFont,
             ),
           ),
         ],

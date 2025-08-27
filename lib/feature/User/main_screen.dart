@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:zone_express/feature/account/screen/profile_screen.dart';
+
+import 'account/screen/profile_screen.dart';
 import 'dashboard/screens/dashboard_screen.dart';
 import 'orders/screens/order_screen.dart';
 

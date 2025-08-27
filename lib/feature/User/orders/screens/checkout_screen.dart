@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:zone_express/common/comm_button_yellow.dart';
-import 'package:zone_express/feature/orders/screens/tracking.dart';
-import 'package:zone_express/feature/orders/widget/custom_button.dart';
+import 'package:zone_express/feature/User/orders/screens/tracking.dart';
+import '../../../../utils/constants/font.dart';
+import '../widget/custom_button.dart';
 
 class CheckoutScreen extends StatefulWidget {
   const CheckoutScreen({super.key});
@@ -24,7 +25,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
-            fontFamily: 'Plus Jakarta Sans',
+            fontFamily: Tfonts.plusJakartaSansFont,
           ),
         ),
         centerTitle: true,
@@ -42,7 +43,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   style: TextStyle(
                     fontSize: 21,
                     fontWeight: FontWeight.bold,
-                    fontFamily: 'Plus Jakarta Sans',
+                    fontFamily: Tfonts.plusJakartaSansFont,
                   ),
                 ),
               ),
@@ -87,7 +88,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                   style: TextStyle(
                     fontSize: 21,
                     fontWeight: FontWeight.bold,
-                    fontFamily: 'Plus Jakarta Sans',
+                    fontFamily: Tfonts.plusJakartaSansFont,
                   ),
                 ),
               ),
@@ -102,7 +103,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
-                      fontFamily: 'Plus Jakarta Sans',
+                      fontFamily: Tfonts.plusJakartaSansFont,
                       color: Color(0xFF9E8F47),
                     ),
                   ),
@@ -115,7 +116,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
-                      fontFamily: 'Plus Jakarta Sans',
+                      fontFamily: Tfonts.plusJakartaSansFont,
                       color: Colors.black87,
                     ),
                   ),
@@ -132,7 +133,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
-                      fontFamily: 'Plus Jakarta Sans',
+                      fontFamily: Tfonts.plusJakartaSansFont,
                       color: Color(0xFF9E8F47),
                     ),
                   ),
@@ -145,7 +146,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
-                      fontFamily: 'Plus Jakarta Sans',
+                      fontFamily: Tfonts.plusJakartaSansFont,
                       color: Colors.black87,
                     ),
                   ),
@@ -162,7 +163,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
-                      fontFamily: 'Plus Jakarta Sans',
+                      fontFamily: Tfonts.plusJakartaSansFont,
                       color: Color(0xFF9E8F47),
                     ),
                   ),
@@ -175,7 +176,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
-                      fontFamily: 'Plus Jakarta Sans',
+                      fontFamily: Tfonts.plusJakartaSansFont,
                       color: Colors.black87,
                     ),
                   ),
@@ -194,7 +195,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
-                      fontFamily: 'Plus Jakarta Sans',
+                      fontFamily: Tfonts.plusJakartaSansFont,
                       color: Color(0xFF9E8F47),
                     ),
                   ),
@@ -207,7 +208,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                     style: TextStyle(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
-                      fontFamily: 'Plus Jakarta Sans',
+                      fontFamily: Tfonts.plusJakartaSansFont,
                       color: Colors.black87,
                     ),
                   ),
