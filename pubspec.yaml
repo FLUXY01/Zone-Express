@@ -21,6 +21,7 @@ dependencies:
   permission_handler: ^12.0.1
   flutter_svg: ^2.2.0
   video_player: ^2.10.0
+  image_picker: ^1.2.0
 
 dev_dependencies:
   flutter_test:
@@ -36,6 +37,7 @@ flutter:
 
 
   assets:
+     - assets/images/user_img/
      - assets/images/delivery_img/
      - assets/images/courier_img/
      - assets/video/intro_video/intro_zone_express.mp4

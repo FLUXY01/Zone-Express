@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 import 'package:zone_express/common/common_button.dart';
+import 'package:zone_express/feature/Delivery/login/screens/profile_intro.dart';
 import '../../../utils/constants/font.dart';
 import '../../User/login/screen/choice_screen.dart';
 import '../controller/video_controller.dart';
@@ -84,11 +85,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 setState(() {
                   pressedIndex = 1;
                 });
-                Get.snackbar(
-                  "Delivery Partner",
-                  "Navigating to Delivery Partner Home",
-                );
-                // Get.to(DeliveryHomePage());
+                Get.off(() => ProfileIntro());
               },
             ),
           ],
