@@ -5,13 +5,13 @@ import '../../../../utils/constants/font.dart';
 class StatCard extends StatelessWidget {
   final String title;
   final String value;
-  final String percentage;
+  final String? percentage; // 👈 make it nullable
 
   const StatCard({
     Key? key,
     required this.title,
     required this.value,
-    required this.percentage,
+    this.percentage, // 👈 not required anymore
   }) : super(key: key);
 
   @override
@@ -44,16 +44,19 @@ class StatCard extends StatelessWidget {
               fontFamily: Tfonts.plusJakartaSansFont,
             ),
           ),
-          const SizedBox(height: 8),
-          Text(
-            percentage,
-            style: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-              color: Colors.green,
-              fontFamily: Tfonts.plusJakartaSansFont,
+          if (percentage != null) ...[
+            // 👈 only show if provided
+            const SizedBox(height: 8),
+            Text(
+              percentage!,
+              style: const TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: Colors.green,
+                fontFamily: Tfonts.plusJakartaSansFont,
+              ),
             ),
-          ),
+          ],
         ],
       ),
     );

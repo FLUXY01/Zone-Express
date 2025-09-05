@@ -4,19 +4,19 @@ import 'account/screen/profile_screen.dart';
 import 'dashboard/screens/dashboard_screen.dart';
 import 'orders/screens/order_screen.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+class MainScreenUser extends StatefulWidget {
+  const MainScreenUser({super.key});
 
   @override
-  State<MainScreen> createState() => _MainScreenState();
+  State<MainScreenUser> createState() => _MainScreenUserState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _MainScreenUserState extends State<MainScreenUser> {
   int _selectedIndex = 0;
 
   // Pages for each tab
   final List<Widget> _pages = [
-    const DashboardScreen(), // Home
+    const DashboardScreenUser(), // Home
     const OrderScreen(), // Orders
     const Center(
       child: Text("Analytics Page"),

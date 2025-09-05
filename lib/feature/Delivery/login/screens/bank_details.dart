@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:zone_express/common/comm_button_yellow.dart';
+import 'package:zone_express/feature/Delivery/dashboard/screens/dashboard_delivery.dart';
 import 'package:zone_express/feature/Delivery/login/controller/bank_details_controller.dart';
 import 'package:zone_express/feature/Delivery/login/widget/custom_textfield_bank_details.dart';
+import 'package:zone_express/feature/Delivery/main_screen_delivery.dart';
 import '../../../../utils/constants/font.dart';
 
 class BankDetails extends StatefulWidget {
@@ -79,7 +81,12 @@ class _BankDetailsState extends State<BankDetails> {
             SizedBox(height: screenHeight * 0.09),
             SizedBox(
               width: screenWidth * 0.9,
-              child: CommonButtonYellow(label: "Submit", onPressed: () {}),
+              child: CommonButtonYellow(
+                label: "Submit",
+                onPressed: () {
+                  Get.off(() => const MainScreenDelivery());
+                },
+              ),
             ),
           ],
         ),

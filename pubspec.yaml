@@ -38,6 +38,7 @@ flutter:
 
   assets:
      - assets/images/user_img/
+     - assets/images/dashboard_user_img/
      - assets/images/delivery_img/
      - assets/images/courier_img/
      - assets/video/intro_video/intro_zone_express.mp4

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:zone_express/common/common_button.dart';
+import 'package:zone_express/feature/Delivery/dashboard/screens/dashboard_delivery.dart';
+import 'package:zone_express/feature/User/dashboard/screens/dashboard_screen.dart';
 import 'package:zone_express/feature/User/login/screen/login_email_screen.dart';
 import 'package:zone_express/feature/User/login/screen/signup_email_screen.dart';
+import 'package:zone_express/feature/User/main_screen_user.dart';
 import 'package:zone_express/utils/constants/font.dart';
 
 /// Enum for choices
@@ -98,6 +101,7 @@ class _ChoiceScreenState extends State<ChoiceScreen> {
                       setState(() {
                         pressed = ChoiceType.guest;
                       });
+                      Get.to(() => MainScreenUser());
                     },
                   ),
                 ),

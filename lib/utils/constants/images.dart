@@ -24,4 +24,10 @@ class TImage {
       'assets/images/account_img/integrations_icon.svg';
   static const String language_icon =
       'assets/images/account_img/language_icon.svg';
+
+  ///Dashboard_user
+  static const String truck_dash =
+      'assets/images/dashboard_user_img/truck_dash.png';
+  static const String delivered_dash =
+      'assets/images/dashboard_user_img/delivered_dash.png';
 }

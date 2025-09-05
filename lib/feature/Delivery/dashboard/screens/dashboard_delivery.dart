@@ -1,25 +1,34 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:zone_express/common/comm_button_yellow.dart';
 import 'package:zone_express/common/common_button_grey.dart';
+import 'package:zone_express/feature/User/dashboard/widget/stat_card.dart';
 import 'package:zone_express/utils/constants/font.dart';
-import 'package:zone_express/utils/constants/images.dart';
 
-import '../widget/stat_card.dart';
+import '../../../../utils/constants/images.dart';
 
-class DashboardScreenUser extends StatefulWidget {
-  const DashboardScreenUser({super.key});
+class DashboardScreenDelivery extends StatefulWidget {
+  const DashboardScreenDelivery({super.key});
 
   @override
-  State<DashboardScreenUser> createState() => _DashboardScreenUserState();
+  State<DashboardScreenDelivery> createState() =>
+      _DashboardScreenDeliveryState();
 }
 
-class _DashboardScreenUserState extends State<DashboardScreenUser> {
+class _DashboardScreenDeliveryState extends State<DashboardScreenDelivery> {
+  bool isOnline = false; // toggle state
+
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
+
+    // Example incentive data
+    int completedDeliveries = 6;
+    int targetDeliveries = 10;
+    int remaining = targetDeliveries - completedDeliveries;
+
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(
@@ -30,7 +39,7 @@ class _DashboardScreenUserState extends State<DashboardScreenUser> {
                   Expanded(
                     child: Text(
                       textAlign: TextAlign.center,
-                      "Dashboard",
+                      "Home",
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -45,57 +54,123 @@ class _DashboardScreenUserState extends State<DashboardScreenUser> {
                   ),
                 ],
               ),
-              SizedBox(height: screenHeight * 0.05),
+
+              SizedBox(height: screenHeight * 0.03),
+
+              // 👇 Toggle switch
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Quick Actions",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black87,
-                      fontFamily: Tfonts.plusJakartaSansFont,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Go online",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black87,
+                        fontFamily: Tfonts.workSansFont,
+                      ),
                     ),
-                  ),
+                    Switch(
+                      value: isOnline,
+                      onChanged: (value) {
+                        setState(() {
+                          isOnline = value;
+                        });
+                      },
+                      activeColor: Colors.white,
+                      activeTrackColor: Colors.green,
+                      inactiveThumbColor: Colors.white,
+                      inactiveTrackColor: Colors.grey.shade300,
+                    ),
+                  ],
                 ),
               ),
-              SizedBox(height: screenHeight * 0.02),
-              Row(
-                children: [
-                  SizedBox(
-                    width: screenWidth * 0.40,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
-                      child: CommonButtonYellow(
-                        label: "New Delivery",
-                        onPressed: () {},
-                      ),
-                    ),
-                  ),
-                  const Spacer(),
-                  SizedBox(
-                    width: screenWidth * 0.40,
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 9.0),
-                      child: CommonButtonGrey(
-                        label: "Schedule",
-                        onPressed: () {},
-                      ),
-                    ),
-                  ),
-                ],
+
+              SizedBox(height: screenHeight * 0.05),
+
+              // 👇 Today's Earnings Card
+              SizedBox(
+                width: screenWidth * 0.9,
+                height: screenHeight * 0.15,
+                child: StatCard(
+                  title: "Today's Earnings",
+                  value: "\$120",
+                  percentage: null,
+                ),
               ),
-              SizedBox(height: screenHeight * 0.04),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Align(
-                  alignment: Alignment.centerLeft,
+
+              SizedBox(height: screenHeight * 0.05),
+
+              // 👇 Incentives Progress Card
+              Container(
+                width: screenWidth * 0.9,
+                decoration: BoxDecoration(
+                  color: Colors.white, // light cream
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Title + count
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Incentives",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black87,
+                            fontFamily: Tfonts.plusJakartaSansFont,
+                          ),
+                        ),
+                        Text(
+                          "$completedDeliveries/$targetDeliveries",
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black87,
+                            fontFamily: Tfonts.plusJakartaSansFont,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
+
+                    // Progress bar
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: LinearProgressIndicator(
+                        value: completedDeliveries / targetDeliveries,
+                        backgroundColor: Colors.grey.shade300,
+                        valueColor: AlwaysStoppedAnimation<Color>(Colors.amber),
+                        minHeight: 8,
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+
+                    // Subtitle
+                    Text(
+                      "Complete $remaining more deliveries to earn \$20",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.brown.shade400,
+                        fontFamily: Tfonts.plusJakartaSansFont,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: screenHeight * 0.05),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 16.0),
                   child: Text(
-                    "Active Orders",
-                    textAlign: TextAlign.left,
+                    "Active Delivery",
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -114,7 +189,7 @@ class _DashboardScreenUserState extends State<DashboardScreenUser> {
                       Padding(
                         padding: const EdgeInsets.only(left: 16.0),
                         child: Text(
-                          "Order ID: 12345",
+                          "Pickup ETA 10:30 AM",
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
@@ -127,7 +202,7 @@ class _DashboardScreenUserState extends State<DashboardScreenUser> {
                       Padding(
                         padding: const EdgeInsets.only(left: 16.0),
                         child: Text(
-                          "Delivery to 123 Main St",
+                          "Order #12345",
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -140,7 +215,7 @@ class _DashboardScreenUserState extends State<DashboardScreenUser> {
                       Padding(
                         padding: const EdgeInsets.only(left: 16.0),
                         child: Text(
-                          "Status: In Transit",
+                          "123 Main St, Anytown",
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
@@ -158,7 +233,23 @@ class _DashboardScreenUserState extends State<DashboardScreenUser> {
                   ),
                 ],
               ),
-              SizedBox(height: screenHeight * 0.06),
+              SizedBox(height: screenHeight * 0.04),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 16.0),
+                  child: Text(
+                    "Next Pickup",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black87,
+                      fontFamily: Tfonts.plusJakartaSansFont,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: screenHeight * 0.04),
               Row(
                 children: [
                   Column(
@@ -167,7 +258,7 @@ class _DashboardScreenUserState extends State<DashboardScreenUser> {
                       Padding(
                         padding: const EdgeInsets.only(left: 16.0),
                         child: Text(
-                          "Order: 67890",
+                          "ETA 11:00 AM",
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
@@ -180,7 +271,7 @@ class _DashboardScreenUserState extends State<DashboardScreenUser> {
                       Padding(
                         padding: const EdgeInsets.only(left: 16.0),
                         child: Text(
-                          "Delivery to 456 Elm St",
+                          "Restaurant Name",
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
@@ -193,7 +284,7 @@ class _DashboardScreenUserState extends State<DashboardScreenUser> {
                       Padding(
                         padding: const EdgeInsets.only(left: 16.0),
                         child: Text(
-                          "Status: Delivered",
+                          "456 Oak Ave, Anytown",
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w400,
@@ -211,70 +302,13 @@ class _DashboardScreenUserState extends State<DashboardScreenUser> {
                   ),
                 ],
               ),
-              SizedBox(height: screenHeight * 0.06),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 16.0),
-                  child: Text(
-                    textAlign: TextAlign.left,
-                    "Analytics",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black87,
-                      fontFamily: Tfonts.plusJakartaSansFont,
-                    ),
-                  ),
+              SizedBox(height: screenHeight * 0.04),
+              SizedBox(
+                width: screenWidth * 0.9,
+                child: CommonButtonGrey(
+                  label: "Call Support",
+                  onPressed: () {},
                 ),
-              ),
-              SizedBox(height: screenHeight * 0.02),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: SizedBox(
-                      height: screenHeight * 0.25,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: StatCard(
-                          title: "Total Deliveries",
-                          value: "150",
-                          percentage: "+10%",
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: screenWidth * 0.02),
-                  Expanded(
-                    child: SizedBox(
-                      height: screenHeight * 0.25,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: StatCard(
-                          title: "Average Delivery Time",
-                          value: "2 Hours",
-                          percentage: "-2%",
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: screenHeight * 0.01),
-              Row(
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: StatCard(
-                        title: 'Customer Satisfaction',
-                        value: '95%',
-                        percentage: '+2%',
-                      ),
-                    ),
-                  ),
-                ],
               ),
             ],
           ),
