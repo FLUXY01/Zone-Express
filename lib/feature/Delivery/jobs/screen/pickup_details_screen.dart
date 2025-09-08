@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:zone_express/common/comm_button_yellow.dart';
 import 'package:zone_express/common/common_button_grey.dart';
+import 'package:zone_express/feature/Delivery/jobs/screen/drop_off_screen.dart';
 import 'package:zone_express/feature/Delivery/jobs/widget/pickup_card.dart';
 
 import '../../../../utils/constants/font.dart';
@@ -97,7 +99,9 @@ class _PickupDetailsScreenState extends State<PickupDetailsScreen> {
                 width: double.infinity,
                 child: CommonButtonYellow(
                   label: "Arrived at Pickup",
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(() => DropOffScreen());
+                  },
                 ),
               ),
             ],

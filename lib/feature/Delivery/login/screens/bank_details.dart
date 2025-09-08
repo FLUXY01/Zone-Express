@@ -24,7 +24,14 @@ class _BankDetailsState extends State<BankDetails> {
     final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Add your bank details"),
+        title: const Text(
+          "Add your bank details",
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            fontFamily: Tfonts.workSansFont,
+          ),
+        ),
         centerTitle: true,
       ),
       body: Padding(

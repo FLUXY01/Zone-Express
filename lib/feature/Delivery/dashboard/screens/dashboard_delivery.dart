@@ -310,6 +310,7 @@ class _DashboardScreenDeliveryState extends State<DashboardScreenDelivery> {
                   onPressed: () {},
                 ),
               ),
+              SizedBox(height: screenHeight * 0.04),
             ],
           ),
         ),
