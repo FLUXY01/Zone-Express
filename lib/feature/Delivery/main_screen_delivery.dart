@@ -6,6 +6,7 @@ import 'package:zone_express/feature/Delivery/jobs/screen/jobs_screen.dart';
 import 'package:zone_express/feature/Delivery/profile/screens/profile_screen.dart';
 
 import 'more/screen/help_safety_screen.dart';
+import 'more/screen/notification_screen.dart';
 
 class MainScreenDelivery extends StatefulWidget {
   const MainScreenDelivery({super.key});
@@ -83,8 +84,7 @@ class _MainScreenDeliveryState extends State<MainScreenDelivery> {
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                 ),
                 onTap: () {
-                  Navigator.pop(context);
-                  // Navigate to Notifications screen
+                  Get.off(() => const NotificationScreen());
                 },
               ),
               const SizedBox(height: 10),

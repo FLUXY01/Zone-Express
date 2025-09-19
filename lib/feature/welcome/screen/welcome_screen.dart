@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 import 'package:zone_express/common/common_button.dart';
+import 'package:zone_express/feature/Admin/login/screen/admin_login.dart';
 import 'package:zone_express/feature/Delivery/login/screens/profile_intro.dart';
 import '../../../utils/constants/font.dart';
 import '../../User/login/screen/choice_screen.dart';
@@ -19,13 +20,11 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   void initState() {
     super.initState();
-    // Register controller only once
     videoCtrl = Get.put(VideoController());
   }
 
   @override
   void dispose() {
-    // Dispose controller when screen is disposed
     if (Get.isRegistered<VideoController>()) {
       Get.delete<VideoController>();
     }
@@ -89,6 +88,23 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               },
             ),
           ],
+        ),
+      ),
+
+      // 👇 Admin Login Footer
+      bottomNavigationBar: GestureDetector(
+        onTap: () {
+          // Navigate to Admin Login screen
+          Get.off(() => AdminLogin());
+        },
+        child: Text(
+          "Admin Login",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+            color: Color(0xFF9E8A47), // gold color
+          ),
         ),
       ),
     );

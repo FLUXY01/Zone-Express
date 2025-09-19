@@ -4,12 +4,11 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:zone_express/common/comm_button_yellow.dart';
+import 'package:zone_express/feature/User/orders/widget/courier_card.dart';
 import '../../../../utils/constants/font.dart';
 import '../../../../utils/constants/images.dart';
 import '../controller/order_controller.dart';
-import '../widget/custom_button.dart';
 import '../widget/custom_textfield_orders.dart';
-import 'courier_options.dart';
 
 class OrderScreen extends StatefulWidget {
   const OrderScreen({super.key});
@@ -26,13 +25,15 @@ class _OrderScreenState extends State<OrderScreen> {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: SafeArea(
-          child: Column(
-            children: [
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
                   child: Text(
                     "Schedule a Delivery",
                     textAlign: TextAlign.center,
@@ -43,225 +44,108 @@ class _OrderScreenState extends State<OrderScreen> {
                     ),
                   ),
                 ),
-              ),
-              SizedBox(height: screenHeight * 0.04),
-              SizedBox(
-                width: screenWidth * 0.9,
-                child: CustomTextFieldOrders(
-                  hintText: "Pickup Address",
-                  controller: formController.pickupAddressController,
-                ),
-              ),
-              SizedBox(height: screenHeight * 0.02),
-              SizedBox(
-                width: screenWidth * 0.9,
-                child: CustomTextFieldOrders(
-                  hintText: "Drop-off Address",
-                  controller: formController.dropOffAddressController,
-                ),
-              ),
-              SizedBox(height: screenHeight * 0.05),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 24.0),
-                  child: Text(
-                    "Package Details",
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: Tfonts.plusJakartaSansFont,
-                    ),
+                SizedBox(height: screenHeight * 0.03),
+                Text(
+                  "Address Details",
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: Tfonts.plusJakartaSansFont,
                   ),
                 ),
-              ),
-              SizedBox(height: screenHeight * 0.03),
-              SizedBox(
-                width: screenWidth * 0.9,
-                child: CustomTextFieldOrders(
-                  hintText: "Size of Package",
-                  controller: formController.dropOffAddressController,
-                ),
-              ),
-              SizedBox(height: screenHeight * 0.02),
-              SizedBox(
-                width: screenWidth * 0.9,
-                child: CustomTextFieldOrders(
-                  hintText: "Weight of Package",
-                  controller: formController.dropOffAddressController,
-                ),
-              ),
-              SizedBox(height: screenHeight * 0.05),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 24.0),
-                  child: Text(
-                    "Service Options",
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: Tfonts.plusJakartaSansFont,
-                    ),
+                SizedBox(height: screenHeight * 0.04),
+                SizedBox(
+                  width: screenWidth * 0.9,
+                  child: CustomTextFieldOrders(
+                    hintText: "Pickup Address",
+                    controller: formController.pickupAddressController,
                   ),
                 ),
-              ),
-              SizedBox(height: screenHeight * 0.03),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 24.0),
-                    child: CustomSelectableButton(
-                      label: "Express",
-                      index: 0,
-                      selectedIndex: selectedIndex,
-                    ),
-                  ),
-                  SizedBox(width: screenWidth * 0.05),
-                  CustomSelectableButton(
-                    label: "Eco",
-                    index: 1,
-                    selectedIndex: selectedIndex,
-                  ),
-                  SizedBox(width: screenWidth * 0.05),
-                  CustomSelectableButton(
-                    label: "Bulk",
-                    index: 2,
-                    selectedIndex: selectedIndex,
-                  ),
-                ],
-              ),
-              SizedBox(height: screenHeight * 0.05),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 24.0),
-                  child: Text(
-                    "Instant Quote",
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: Tfonts.plusJakartaSansFont,
-                    ),
+                SizedBox(height: screenHeight * 0.02),
+                SizedBox(
+                  width: screenWidth * 0.9,
+                  child: CustomTextFieldOrders(
+                    hintText: "Drop-off Address",
+                    controller: formController.dropOffAddressController,
                   ),
                 ),
-              ),
-              SizedBox(height: screenHeight * 0.02),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 24.0),
-                  child: Text(
-                    "Estimated Cost: \$25-\$30",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontFamily: Tfonts.plusJakartaSansFont,
-                    ),
+                SizedBox(height: screenHeight * 0.05),
+                Text(
+                  "Package Details",
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: Tfonts.plusJakartaSansFont,
                   ),
                 ),
-              ),
-              SizedBox(height: screenHeight * 0.02),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 20.0),
-                  child: Text(
-                    "Courier Recommendations",
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontFamily: Tfonts.plusJakartaSansFont,
-                      fontWeight: FontWeight.bold,
-                    ),
+                SizedBox(height: screenHeight * 0.03),
+                SizedBox(
+                  width: screenWidth * 0.9,
+                  child: CustomTextFieldOrders(
+                    hintText: "Size of Package",
+                    controller: formController.dropOffAddressController,
                   ),
                 ),
-              ),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15.0),
-                    child: CircleAvatar(
-                      radius: 40,
-                      backgroundImage: AssetImage(TImage.courier_boy),
-                      backgroundColor: Colors.transparent,
-                    ),
+                SizedBox(height: screenHeight * 0.02),
+                SizedBox(
+                  width: screenWidth * 0.9,
+                  child: CustomTextFieldOrders(
+                    hintText: "Weight of Package",
+                    controller: formController.dropOffAddressController,
                   ),
-                  Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10.0),
-                        child: Text(
-                          "Swift Courier",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: Tfonts.plusJakartaSansFont,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10.0),
-                        child: Text(
-                          "Fastest Delivery",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: Tfonts.plusJakartaSansFont,
-                            color: Color(0xFF9E8F47),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              SizedBox(height: screenHeight * 0.02),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15.0),
-                    child: CircleAvatar(
-                      radius: 40,
-                      backgroundImage: AssetImage(TImage.courier_boy),
-                      backgroundColor: Colors.transparent,
-                    ),
-                  ),
-                  Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10.0),
-                        child: Text(
-                          "Budget Express",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: Tfonts.plusJakartaSansFont,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10.0),
-                        child: Text(
-                          "Most affordable",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontFamily: Tfonts.plusJakartaSansFont,
-                            color: Color(0xFF9E8F47),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              SizedBox(height: screenHeight * 0.05),
-              SizedBox(
-                width: screenWidth * 0.9,
-                child: CommonButtonYellow(
-                  label: "Schedule Pickup",
-                  onPressed: () => Get.to(CourierOptions()),
                 ),
-              ),
-              SizedBox(height: screenHeight * 0.02),
-            ],
+                SizedBox(height: screenHeight * 0.05),
+                Text(
+                  "Service Options",
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: Tfonts.plusJakartaSansFont,
+                  ),
+                ),
+                SizedBox(height: screenHeight * 0.03),
+                CourierCard(
+                  title: "Speedy Express",
+                  subtitle: "Same-day",
+                  price: '150',
+                  deliveryType: "Standard",
+                  imagePath: TImage.express,
+                ),
+                SizedBox(height: screenHeight * 0.03),
+                CourierCard(
+                  title: "DHL Express",
+                  subtitle: "2-3 hrs",
+                  price: '180',
+                  deliveryType: "Express",
+                  imagePath: TImage.dhl,
+                ),
+                SizedBox(height: screenHeight * 0.03),
+                CourierCard(
+                  title: "Eco Post",
+                  subtitle: "Next Day",
+                  price: '120',
+                  deliveryType: "Economy",
+                  imagePath: TImage.eco,
+                ),
+                SizedBox(height: screenHeight * 0.03),
+                CourierCard(
+                  title: "Swift Delivery",
+                  subtitle: "2-3 hrs",
+                  price: '200',
+                  deliveryType: "Standard",
+                  imagePath: TImage.swift,
+                ),
+                SizedBox(height: screenHeight * 0.03),
+                SizedBox(
+                  width: double.infinity,
+                  child: CommonButtonYellow(
+                    label: "Continue",
+                    onPressed: () {},
+                  ),
+                ),
+                SizedBox(height: screenHeight * 0.03),
+              ],
+            ),
           ),
         ),
       ),

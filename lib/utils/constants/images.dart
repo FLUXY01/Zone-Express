@@ -14,6 +14,10 @@ class TImage {
   static const String courier_boy = 'assets/images/courier_img/courier_1.png';
   static const String courier_girl =
       'assets/images/courier_img/courier_girl.png';
+  static const String express = 'assets/images/courier_img/express.png';
+  static const String dhl = 'assets/images/courier_img/dhl.png';
+  static const String eco = 'assets/images/courier_img/eco.png';
+  static const String swift = 'assets/images/courier_img/swift.png';
 
   /// Account Image
   static const String api_icon = 'assets/images/account_img/api_icon.svg';

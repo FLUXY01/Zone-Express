@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import '../../../../utils/constants/font.dart';
-import '../../../../utils/constants/images.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -17,44 +15,34 @@ class _ProfileScreenState extends State<ProfileScreen> {
     final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: const Text(
-          "Account",
+          "Profile",
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.bold,
             fontFamily: Tfonts.plusJakartaSansFont,
           ),
         ),
+        automaticallyImplyLeading: false,
         centerTitle: true,
       ),
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           children: [
-            SizedBox(height: screenHeight * 0.03),
-            Padding(
-              padding: const EdgeInsets.only(left: 16.0),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Settings",
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black87,
-                    fontFamily: Tfonts.plusJakartaSansFont,
-                  ),
+            SizedBox(height: screenHeight * 0.05),
+            ListTile(
+              leading: const Icon(Icons.person_outline, size: 30),
+              title: const Text(
+                "Name",
+                style: TextStyle(
+                  fontFamily: Tfonts.plusJakartaSansFont,
+                  fontSize: 18,
                 ),
               ),
-            ),
-            SizedBox(height: screenHeight * 0.02),
-            ListTile(
-              leading: SvgPicture.asset(TImage.bell_icon),
-              title: const Text(
-                "Notifications",
-                style: TextStyle(fontFamily: Tfonts.workSansFont, fontSize: 16),
-              ),
               subtitle: const Text(
-                "Manage notification settings",
+                "Vimanyu J",
                 style: TextStyle(
                   fontFamily: Tfonts.workSansFont,
                   fontSize: 14,
@@ -64,14 +52,47 @@ class _ProfileScreenState extends State<ProfileScreen> {
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
               onTap: () {},
             ),
+            Divider(
+              color: Colors.grey.shade300,
+              thickness: 1,
+              indent: screenWidth * 0.05,
+              endIndent: screenWidth * 0.05,
+            ),
             ListTile(
-              leading: SvgPicture.asset(TImage.integration_icon),
+              leading: Icon(Icons.phone_in_talk_outlined, size: 30),
               title: const Text(
-                "Integrations",
-                style: TextStyle(fontFamily: Tfonts.workSansFont, fontSize: 16),
+                "Phone Number",
+                style: TextStyle(
+                  fontFamily: Tfonts.plusJakartaSansFont,
+                  fontSize: 18,
+                ),
               ),
               subtitle: const Text(
-                "Connect your bussiness tools",
+                "+91 9876543210",
+                style: TextStyle(
+                  fontFamily: Tfonts.workSansFont,
+                  fontSize: 14,
+                  color: Color(0xFF9E8F47),
+                ),
+              ),
+            ),
+            Divider(
+              color: Colors.grey.shade300,
+              thickness: 1,
+              indent: screenWidth * 0.05,
+              endIndent: screenWidth * 0.05,
+            ),
+            ListTile(
+              leading: Icon(Icons.email_outlined, size: 30),
+              title: const Text(
+                "Email",
+                style: TextStyle(
+                  fontFamily: Tfonts.plusJakartaSansFont,
+                  fontSize: 18,
+                ),
+              ),
+              subtitle: const Text(
+                "vimanyujain07@gmail.com",
                 style: TextStyle(
                   fontFamily: Tfonts.workSansFont,
                   fontSize: 14,
@@ -81,14 +102,53 @@ class _ProfileScreenState extends State<ProfileScreen> {
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
               onTap: () {},
             ),
+            Divider(
+              color: Colors.grey.shade300,
+              thickness: 1,
+              indent: screenWidth * 0.05,
+              endIndent: screenWidth * 0.05,
+            ),
             ListTile(
-              leading: SvgPicture.asset(TImage.api_icon),
+              leading: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: const [
+                  Icon(Icons.person_outline, size: 30),
+                  Icon(Icons.check, size: 15),
+                ],
+              ),
               title: const Text(
-                "API Keys",
-                style: TextStyle(fontFamily: Tfonts.workSansFont, fontSize: 16),
+                "Gender",
+                style: TextStyle(
+                  fontFamily: Tfonts.plusJakartaSansFont,
+                  fontSize: 18,
+                ),
               ),
               subtitle: const Text(
-                "Manage your API keys",
+                "Male",
+                style: TextStyle(
+                  fontFamily: Tfonts.workSansFont,
+                  fontSize: 14,
+                  color: Color(0xFF9E8F47),
+                ),
+              ),
+            ),
+            Divider(
+              color: Colors.grey.shade300,
+              thickness: 1,
+              indent: screenWidth * 0.05,
+              endIndent: screenWidth * 0.05,
+            ),
+            ListTile(
+              leading: Icon(Icons.date_range_outlined, size: 30),
+              title: const Text(
+                "Date of Birth",
+                style: TextStyle(
+                  fontFamily: Tfonts.plusJakartaSansFont,
+                  fontSize: 18,
+                ),
+              ),
+              subtitle: const Text(
+                "20/10/2000",
                 style: TextStyle(
                   fontFamily: Tfonts.workSansFont,
                   fontSize: 14,
@@ -98,60 +158,54 @@ class _ProfileScreenState extends State<ProfileScreen> {
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
               onTap: () {},
             ),
-            SizedBox(height: screenHeight * 0.03),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 16.0),
-                child: Text(
-                  "Preferences",
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black87,
-                    fontFamily: Tfonts.plusJakartaSansFont,
-                  ),
+            Divider(
+              color: Colors.grey.shade300,
+              thickness: 1,
+              indent: screenWidth * 0.05,
+              endIndent: screenWidth * 0.05,
+            ),
+            ListTile(
+              leading: Icon(Icons.workspace_premium_outlined, size: 30),
+              title: const Text(
+                "Member Since",
+                style: TextStyle(
+                  fontFamily: Tfonts.plusJakartaSansFont,
+                  fontSize: 18,
+                ),
+              ),
+              subtitle: const Text(
+                "January 2023",
+                style: TextStyle(
+                  fontFamily: Tfonts.workSansFont,
+                  fontSize: 14,
+                  color: Color(0xFF9E8F47),
                 ),
               ),
             ),
-            SizedBox(height: screenHeight * 0.02),
-            ListTile(
-              leading: SvgPicture.asset(TImage.language_icon),
-              title: const Text(
-                "Language",
-                style: TextStyle(fontFamily: Tfonts.workSansFont, fontSize: 16),
-              ),
-              subtitle: FittedBox(
-                child: const Text(
-                  "Manage your Language preferences",
-                  style: TextStyle(
-                    fontFamily: Tfonts.workSansFont,
-                    fontSize: 14,
-                    color: Color(0xFF9E8F47),
-                  ),
-                ),
-              ),
-              trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-              onTap: () {},
+            Divider(
+              color: Colors.grey.shade300,
+              thickness: 1,
+              indent: screenWidth * 0.05,
+              endIndent: screenWidth * 0.05,
             ),
             ListTile(
-              leading: SvgPicture.asset(TImage.currency_icon),
+              leading: Icon(Icons.emergency_outlined, size: 30),
               title: const Text(
-                "Currency",
-                style: TextStyle(fontFamily: Tfonts.workSansFont, fontSize: 16),
+                "Emergency Contact",
+                style: TextStyle(
+                  fontFamily: Tfonts.plusJakartaSansFont,
+                  fontSize: 18,
+                ),
               ),
-              subtitle: FittedBox(
-                child: const Text(
-                  "Manage your currency preferences",
-                  style: TextStyle(
-                    fontFamily: Tfonts.workSansFont,
-                    fontSize: 14,
-                    color: Color(0xFF9E8F47),
-                  ),
+              subtitle: const Text(
+                "+91 9876543210",
+                style: TextStyle(
+                  fontFamily: Tfonts.workSansFont,
+                  fontSize: 14,
+                  color: Color(0xFF9E8F47),
                 ),
               ),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-              onTap: () {},
             ),
           ],
         ),

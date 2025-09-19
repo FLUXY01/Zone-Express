@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:zone_express/common/comm_button_yellow.dart';
 import 'package:zone_express/common/common_button_grey.dart';
+import 'package:zone_express/feature/User/dashboard/widget/loyalty_row.dart';
 import 'package:zone_express/utils/constants/font.dart';
 import 'package:zone_express/utils/constants/images.dart';
 
@@ -218,7 +219,7 @@ class _DashboardScreenUserState extends State<DashboardScreenUser> {
                   padding: const EdgeInsets.only(left: 16.0),
                   child: Text(
                     textAlign: TextAlign.left,
-                    "Analytics",
+                    "Loyalty Offers",
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -229,53 +230,36 @@ class _DashboardScreenUserState extends State<DashboardScreenUser> {
                 ),
               ),
               SizedBox(height: screenHeight * 0.02),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: SizedBox(
-                      height: screenHeight * 0.25,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: StatCard(
-                          title: "Total Deliveries",
-                          value: "150",
-                          percentage: "+10%",
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: screenWidth * 0.02),
-                  Expanded(
-                    child: SizedBox(
-                      height: screenHeight * 0.25,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: StatCard(
-                          title: "Average Delivery Time",
-                          value: "2 Hours",
-                          percentage: "-2%",
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
+              LoyaltyRow(
+                leadingIcon: Icons.card_giftcard_rounded,
+                title: "Free Delivery",
+                subtitle: "500 Points",
+                trailingButton: SizedBox(
+                  width: screenWidth * 0.3,
+                  child: CommonButtonGrey(label: "Redeem", onPressed: () {}),
+                ),
               ),
-              SizedBox(height: screenHeight * 0.01),
-              Row(
-                children: [
-                  Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: StatCard(
-                        title: 'Customer Satisfaction',
-                        value: '95%',
-                        percentage: '+2%',
-                      ),
-                    ),
-                  ),
-                ],
+              SizedBox(height: screenHeight * 0.02),
+              LoyaltyRow(
+                leadingIcon: Icons.card_giftcard_rounded,
+                title: "Discount on Next Order",
+                subtitle: "1000 Points",
+                trailingButton: SizedBox(
+                  width: screenWidth * 0.3,
+                  child: CommonButtonGrey(label: "Redeem", onPressed: () {}),
+                ),
               ),
+              SizedBox(height: screenHeight * 0.02),
+              LoyaltyRow(
+                leadingIcon: Icons.card_giftcard_rounded,
+                title: "Exclusive Merchandise",
+                subtitle: "1500 Points",
+                trailingButton: SizedBox(
+                  width: screenWidth * 0.3,
+                  child: CommonButtonGrey(label: "Redeem", onPressed: () {}),
+                ),
+              ),
+              SizedBox(height: screenHeight * 0.02),
             ],
           ),
         ),
