@@ -17,11 +17,8 @@ class _MainScreenUserState extends State<MainScreenUser> {
   // Pages for each tab
   final List<Widget> _pages = [
     const DashboardScreenUser(), // Home
-    const OrderScreen(), // Orders
-    const Center(
-      child: Text("Analytics Page"),
-    ), // TODO: Replace with AnalyticsScreen
-    const ProfileScreen(), // TODO: Replace with AccountScreen
+    OrderScreen(), // Orders
+    const ProfileScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -54,14 +51,9 @@ class _MainScreenUserState extends State<MainScreenUser> {
             label: "Orders",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.show_chart_outlined),
-            activeIcon: Icon(Icons.show_chart),
-            label: "Analytics",
-          ),
-          BottomNavigationBarItem(
             icon: Icon(Icons.person_outline),
             activeIcon: Icon(Icons.person),
-            label: "Account",
+            label: "Profile",
           ),
         ],
       ),

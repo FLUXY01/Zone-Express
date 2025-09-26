@@ -1,12 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:zone_express/common/comm_button_yellow.dart';
-import 'package:zone_express/common/common_button_grey.dart';
-import 'package:zone_express/feature/User/dashboard/widget/loyalty_row.dart';
+import 'package:get/get.dart';
+import 'package:zone_express/feature/User/dashboard/widget/dashboard_container.dart';
+import 'package:zone_express/feature/User/orders/screens/package_details.dart';
 import 'package:zone_express/utils/constants/font.dart';
-import 'package:zone_express/utils/constants/images.dart';
-
-import '../widget/stat_card.dart';
 
 class DashboardScreenUser extends StatefulWidget {
   const DashboardScreenUser({super.key});
@@ -21,245 +17,251 @@ class _DashboardScreenUserState extends State<DashboardScreenUser> {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: screenHeight * 0.015),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 12,
+                  ),
+                  height: screenHeight * 0.085,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: Colors.white, width: 1),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 4,
+                        offset: Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  child: GestureDetector(
+                    onTap: () {},
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Icon(
+                              Icons.location_on,
+                              color: Colors.red,
+                              size: 24,
+                            ),
+                            SizedBox(width: 8),
+                            Text(
+                              "pick up from",
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w800,
+                                color: Colors.black87,
+                                fontFamily: Tfonts.plusJakartaSansFont,
+                              ),
+                            ),
+                            SizedBox(width: 8),
+                            Icon(
+                              Icons.keyboard_arrow_down,
+                              color: Colors.black54,
+                              size: 24,
+                            ),
+                          ],
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 29.0),
+                            child: Text(
+                              "Current Location",
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w600,
+                                color: Color(0xFF9E8F47),
+                                fontFamily: Tfonts.plusJakartaSansFont,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: screenHeight * 0.01),
+              DashCard(
+                onTap: () {
+                  Get.to(() => PackageDetails());
+                },
+              ),
+              SizedBox(height: screenHeight * 0.01),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 12,
+                  ),
+                  height: screenHeight * 0.065,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: Colors.white, width: 1),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 10,
+                        offset: Offset(2, 4),
+                      ),
+                    ],
+                  ),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.live_help_outlined,
+                        color: Colors.redAccent,
+                        size: 24,
+                      ),
+                      SizedBox(width: screenWidth * 0.02),
+                      Text(
+                        "Get Help",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.black87,
+                          fontFamily: Tfonts.plusJakartaSansFont,
+                        ),
+                      ),
+                      const Spacer(),
+                      Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        color: Colors.grey[700],
+                        size: 24,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: screenHeight * 0.01),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 12,
+                  ),
+                  height: screenHeight * 0.23,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: Colors.white, width: 1),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 10,
+                        offset: Offset(2, 4),
+                      ),
+                    ],
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "can't find your delivery?",
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.black87,
+                          fontFamily: Tfonts.plusJakartaSansFont,
+                        ),
+                      ),
+                      Text(
+                        "Find your delivery using your Order ID",
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF9E8F47),
+                          fontFamily: Tfonts.plusJakartaSansFont,
+                        ),
+                      ),
+                      SizedBox(height: screenHeight * 0.02),
+                      Text(
+                        "Order ID",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black87,
+                          fontFamily: Tfonts.plusJakartaSansFont,
+                        ),
+                      ),
+                      SizedBox(height: screenHeight * 0.02),
+                      TextField(
+                        decoration: InputDecoration(
+                          hintText: "Enter your Order ID",
+                          hintStyle: TextStyle(
+                            color: Colors.grey[400],
+                            fontFamily: Tfonts.plusJakartaSansFont,
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide(color: Colors.grey.shade300),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8),
+                            borderSide: BorderSide(color: Colors.grey.shade400),
+                          ),
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 12,
+                            vertical: 8,
+                          ),
+                          suffixIcon: Icon(
+                            Icons.arrow_forward_ios_rounded,
+                            color: Colors.grey[700],
+                            size: 20,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: screenHeight * 0.02),
+              Padding(
+                padding: const EdgeInsets.only(left: 16.0),
+                child: Text(
+                  "Send Anything,",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w800,
+                    color: Color(0xFF9CA3AF),
+                    fontFamily: Tfonts.plusJakartaSansFont,
+                  ),
+                ),
+              ),
+              SizedBox(height: screenHeight * 0.01),
               Row(
                 children: [
-                  Expanded(
+                  Padding(
+                    padding: const EdgeInsets.only(left: 16.0),
                     child: Text(
-                      textAlign: TextAlign.center,
-                      "Dashboard",
+                      "Anywhere",
                       style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black87,
+                        fontSize: 40,
+                        fontWeight: FontWeight.w800,
+                        color: Color(0xFF9CA3AF),
                         fontFamily: Tfonts.plusJakartaSansFont,
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: Icon(CupertinoIcons.bell),
-                  ),
+                  SizedBox(width: screenWidth * 0.01),
+                  Icon(Icons.square, color: Colors.yellow, size: 24),
                 ],
               ),
-              SizedBox(height: screenHeight * 0.05),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Quick Actions",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black87,
-                      fontFamily: Tfonts.plusJakartaSansFont,
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(height: screenHeight * 0.02),
-              Row(
-                children: [
-                  SizedBox(
-                    width: screenWidth * 0.40,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 8.0),
-                      child: CommonButtonYellow(
-                        label: "New Delivery",
-                        onPressed: () {},
-                      ),
-                    ),
-                  ),
-                  const Spacer(),
-                  SizedBox(
-                    width: screenWidth * 0.40,
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 9.0),
-                      child: CommonButtonGrey(
-                        label: "Schedule",
-                        onPressed: () {},
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: screenHeight * 0.04),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    "Active Orders",
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black87,
-                      fontFamily: Tfonts.plusJakartaSansFont,
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(height: screenHeight * 0.04),
-              Row(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16.0),
-                        child: Text(
-                          "Order ID: 12345",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            color: const Color(0xFF9E8F47),
-                            fontFamily: Tfonts.plusJakartaSansFont,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: screenHeight * 0.01),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16.0),
-                        child: Text(
-                          "Delivery to 123 Main St",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black87,
-                            fontFamily: Tfonts.plusJakartaSansFont,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: screenHeight * 0.01),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16.0),
-                        child: Text(
-                          "Status: In Transit",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            color: const Color(0xFF9E8F47),
-                            fontFamily: Tfonts.plusJakartaSansFont,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: Image(image: AssetImage(TImage.truck_dash)),
-                  ),
-                ],
-              ),
-              SizedBox(height: screenHeight * 0.06),
-              Row(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16.0),
-                        child: Text(
-                          "Order: 67890",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            color: const Color(0xFF9E8F47),
-                            fontFamily: Tfonts.plusJakartaSansFont,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: screenHeight * 0.01),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16.0),
-                        child: Text(
-                          "Delivery to 456 Elm St",
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black87,
-                            fontFamily: Tfonts.plusJakartaSansFont,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: screenHeight * 0.01),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16.0),
-                        child: Text(
-                          "Status: Delivered",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            color: const Color(0xFF9E8F47),
-                            fontFamily: Tfonts.plusJakartaSansFont,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: Image(image: AssetImage(TImage.delivered_dash)),
-                  ),
-                ],
-              ),
-              SizedBox(height: screenHeight * 0.06),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 16.0),
-                  child: Text(
-                    textAlign: TextAlign.left,
-                    "Loyalty Offers",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black87,
-                      fontFamily: Tfonts.plusJakartaSansFont,
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(height: screenHeight * 0.02),
-              LoyaltyRow(
-                leadingIcon: Icons.card_giftcard_rounded,
-                title: "Free Delivery",
-                subtitle: "500 Points",
-                trailingButton: SizedBox(
-                  width: screenWidth * 0.3,
-                  child: CommonButtonGrey(label: "Redeem", onPressed: () {}),
-                ),
-              ),
-              SizedBox(height: screenHeight * 0.02),
-              LoyaltyRow(
-                leadingIcon: Icons.card_giftcard_rounded,
-                title: "Discount on Next Order",
-                subtitle: "1000 Points",
-                trailingButton: SizedBox(
-                  width: screenWidth * 0.3,
-                  child: CommonButtonGrey(label: "Redeem", onPressed: () {}),
-                ),
-              ),
-              SizedBox(height: screenHeight * 0.02),
-              LoyaltyRow(
-                leadingIcon: Icons.card_giftcard_rounded,
-                title: "Exclusive Merchandise",
-                subtitle: "1500 Points",
-                trailingButton: SizedBox(
-                  width: screenWidth * 0.3,
-                  child: CommonButtonGrey(label: "Redeem", onPressed: () {}),
-                ),
-              ),
-              SizedBox(height: screenHeight * 0.02),
             ],
           ),
         ),

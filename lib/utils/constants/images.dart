@@ -34,4 +34,5 @@ class TImage {
       'assets/images/dashboard_user_img/truck_dash.png';
   static const String delivered_dash =
       'assets/images/dashboard_user_img/delivered_dash.png';
+  static const String box = 'assets/images/dashboard_user_img/box.png';
 }
