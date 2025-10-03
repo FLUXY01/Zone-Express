@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
+import 'package:zone_express/common/comm_button_yellow.dart';
 import 'package:zone_express/common/common_button.dart';
 import 'package:zone_express/feature/Admin/login/screen/admin_login.dart';
 import 'package:zone_express/feature/Delivery/login/screens/profile_intro.dart';
@@ -15,7 +16,6 @@ class WelcomeScreen extends StatefulWidget {
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
   late final VideoController videoCtrl;
-  int? pressedIndex;
 
   @override
   void initState() {
@@ -88,47 +88,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               }
             }),
             SizedBox(height: screenHeight * 0.05),
-            CommonButton(
-              icon: Icons.shopping_cart,
-              label: "I’m a Customer",
-              isPressed: pressedIndex == 0,
+            CommonButtonYellow(
+              label: "Get Started",
               onPressed: () {
-                setState(() {
-                  pressedIndex = 0;
-                });
                 Get.off(() => LoginSignup());
               },
             ),
-            SizedBox(height: screenHeight * 0.02),
-            CommonButton(
-              icon: Icons.delivery_dining,
-              label: "I’m a Delivery Partner",
-              isPressed: pressedIndex == 1,
-              onPressed: () {
-                setState(() {
-                  pressedIndex = 1;
-                });
-                Get.off(() => ProfileIntro());
-              },
-            ),
           ],
-        ),
-      ),
-
-      // 👇 Admin Login Footer
-      bottomNavigationBar: GestureDetector(
-        onTap: () {
-          // Navigate to Admin Login screen
-          Get.off(() => AdminLogin());
-        },
-        child: Text(
-          "Admin Login",
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-            color: Color(0xFF9E8A47), // gold color
-          ),
         ),
       ),
     );

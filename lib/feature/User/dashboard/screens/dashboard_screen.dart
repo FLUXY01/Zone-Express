@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:zone_express/feature/User/dashboard/widget/dashboard_container.dart';
+import 'package:zone_express/feature/User/get%20help/screens/get_help.dart';
 import 'package:zone_express/feature/User/orders/screens/package_details.dart';
 import 'package:zone_express/utils/constants/font.dart';
 
@@ -99,50 +100,55 @@ class _DashboardScreenUserState extends State<DashboardScreenUser> {
                 },
               ),
               SizedBox(height: screenHeight * 0.01),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 12,
-                  ),
-                  height: screenHeight * 0.065,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: Colors.white, width: 1),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black12,
-                        blurRadius: 10,
-                        offset: Offset(2, 4),
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(
-                        Icons.live_help_outlined,
-                        color: Colors.redAccent,
-                        size: 24,
-                      ),
-                      SizedBox(width: screenWidth * 0.02),
-                      Text(
-                        "Get Help",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.black87,
-                          fontFamily: Tfonts.plusJakartaSansFont,
+              GestureDetector(
+                onTap: () {
+                  Get.to(() => GetHelp());
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 12,
+                    ),
+                    height: screenHeight * 0.065,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: Colors.white, width: 1),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black12,
+                          blurRadius: 10,
+                          offset: Offset(2, 4),
                         ),
-                      ),
-                      const Spacer(),
-                      Icon(
-                        Icons.arrow_forward_ios_rounded,
-                        color: Colors.grey[700],
-                        size: 24,
-                      ),
-                    ],
+                      ],
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(
+                          Icons.live_help_outlined,
+                          color: Colors.redAccent,
+                          size: 24,
+                        ),
+                        SizedBox(width: screenWidth * 0.02),
+                        Text(
+                          "Get Help",
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w800,
+                            color: Colors.black87,
+                            fontFamily: Tfonts.plusJakartaSansFont,
+                          ),
+                        ),
+                        const Spacer(),
+                        Icon(
+                          Icons.arrow_forward_ios_rounded,
+                          color: Colors.grey[700],
+                          size: 24,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

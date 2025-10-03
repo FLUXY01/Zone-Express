@@ -6,7 +6,6 @@ import 'package:zone_express/common/comm_button_yellow.dart';
 import 'package:zone_express/feature/User/dashboard/screens/dashboard_screen.dart';
 import 'package:zone_express/feature/User/login_Signup/widget/otp_verification.dart';
 import 'package:zone_express/feature/User/login_Signup/widget/phone_textfield.dart';
-import 'package:zone_express/feature/User/main_screen_user.dart';
 import '../../../../utils/constants/font.dart';
 import '../widget/custom_textfield_user_login.dart';
 

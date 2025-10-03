@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 import 'account/screen/profile_screen.dart';
 import 'dashboard/screens/dashboard_screen.dart';
@@ -46,8 +47,8 @@ class _MainScreenUserState extends State<MainScreenUser> {
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.inventory_2_outlined),
-            activeIcon: Icon(Icons.inventory_2),
+            icon: Icon(MaterialCommunityIcons.cube_outline),
+            activeIcon: Icon(MaterialCommunityIcons.cube),
             label: "Orders",
           ),
           BottomNavigationBarItem(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../utils/constants/font.dart';
+import '../../orders/widget/account_bottom_sheet.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -50,7 +51,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-              onTap: () {},
+              onTap: () =>
+                  showAccountFieldBottomSheet(context, AccountFieldType.name),
             ),
             Divider(
               color: Colors.grey.shade300,
@@ -100,7 +102,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-              onTap: () {},
+              onTap: () =>
+                  showAccountFieldBottomSheet(context, AccountFieldType.email),
             ),
             Divider(
               color: Colors.grey.shade300,
@@ -131,6 +134,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   color: Color(0xFF9E8F47),
                 ),
               ),
+              trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+              onTap: () =>
+                  showAccountFieldBottomSheet(context, AccountFieldType.gender),
             ),
             Divider(
               color: Colors.grey.shade300,
@@ -156,7 +162,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-              onTap: () {},
+              onTap: () =>
+                  showAccountFieldBottomSheet(context, AccountFieldType.dob),
             ),
             Divider(
               color: Colors.grey.shade300,
@@ -206,6 +213,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               trailing: const Icon(Icons.arrow_forward_ios, size: 16),
+              onTap: () => showAccountFieldBottomSheet(
+                context,
+                AccountFieldType.emergencyContact,
+              ),
             ),
           ],
         ),
