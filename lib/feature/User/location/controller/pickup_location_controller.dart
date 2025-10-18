@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geolocator/geolocator.dart';
@@ -17,7 +18,7 @@ class PickupLocationController extends GetxController {
   Timer? _debounce;
 
   final String googleApiKey =
-      "AIzaSyBjGjT-JfVCE88J4_EEFqA6wwnoPKCZ4CU"; // 🔑 your key here
+      dotenv.env['GOOGLE_MAPS_API_KEY'] ?? ''; // 🔑 your key here
 
   @override
   void onInit() {

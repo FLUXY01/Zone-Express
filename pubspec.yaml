@@ -24,6 +24,7 @@ dependencies:
   flutter_vector_icons: ^2.0.0
   google_maps_flutter: ^2.13.1
   geocoding: ^4.0.0
+  flutter_dotenv: ^6.0.0
 
 dev_dependencies:
   flutter_test:
