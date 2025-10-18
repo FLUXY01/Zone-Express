@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:zone_express/feature/User/dashboard/widget/dashboard_container.dart';
 import 'package:zone_express/feature/User/get%20help/screens/get_help.dart';
+import 'package:zone_express/feature/User/location/screens/location_search_page.dart';
 import 'package:zone_express/feature/User/orders/screens/package_details.dart';
 import 'package:zone_express/utils/constants/font.dart';
+import '../../location/controller/pickup_location_controller.dart';
 
 class DashboardScreenUser extends StatefulWidget {
   const DashboardScreenUser({super.key});
@@ -13,6 +15,7 @@ class DashboardScreenUser extends StatefulWidget {
 }
 
 class _DashboardScreenUserState extends State<DashboardScreenUser> {
+  final controller = Get.put(PickupLocationController());
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -45,7 +48,9 @@ class _DashboardScreenUserState extends State<DashboardScreenUser> {
                     ],
                   ),
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Get.to(() => LocationSearchPage());
+                    },
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -77,13 +82,17 @@ class _DashboardScreenUserState extends State<DashboardScreenUser> {
                         Expanded(
                           child: Padding(
                             padding: const EdgeInsets.only(left: 29.0),
-                            child: Text(
-                              "Current Location",
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
-                                color: Color(0xFF9E8F47),
-                                fontFamily: Tfonts.plusJakartaSansFont,
+                            child: Obx(
+                              () => Text(
+                                controller.currentAddress.value.isNotEmpty
+                                    ? controller.currentAddress.value
+                                    : "Fetching location...",
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w600,
+                                  color: const Color(0xFF9E8F47),
+                                  fontFamily: Tfonts.plusJakartaSansFont,
+                                ),
                               ),
                             ),
                           ),

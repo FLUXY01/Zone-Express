@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../../location/screens/delivery_location.dart';
+import '../../location/screens/pickup_location.dart';
 
 class AddressBottomSheet extends StatelessWidget {
   final bool isPickup;
@@ -37,7 +40,13 @@ class AddressBottomSheet extends StatelessWidget {
 
           // Add New Address row
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              if (isPickup) {
+                Get.to(() => PickupLocation());
+              } else {
+                Get.to(() => DeliveryLocation());
+              }
+            },
             child: Row(
               children: [
                 const Icon(Icons.location_on, color: Colors.red),
