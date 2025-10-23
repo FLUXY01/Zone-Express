@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:zone_express/feature/User/dashboard/widget/dashboard_container.dart';
 import 'package:zone_express/feature/User/get%20help/screens/get_help.dart';
 import 'package:zone_express/feature/User/location/screens/location_search_page.dart';
-import 'package:zone_express/feature/User/orders/screens/package_details.dart';
+import 'package:zone_express/feature/User/orders/screens/address_details.dart';
 import 'package:zone_express/utils/constants/font.dart';
 import '../../location/controller/pickup_location_controller.dart';
 
@@ -105,7 +105,7 @@ class _DashboardScreenUserState extends State<DashboardScreenUser> {
               SizedBox(height: screenHeight * 0.01),
               DashCard(
                 onTap: () {
-                  Get.to(() => PackageDetails());
+                  Get.to(() => AddressDetails());
                 },
               ),
               SizedBox(height: screenHeight * 0.01),

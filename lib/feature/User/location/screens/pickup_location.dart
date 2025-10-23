@@ -11,6 +11,7 @@ class PickupLocation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(PickupLocationController());
+    final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       appBar: AppBar(
@@ -100,6 +101,7 @@ class PickupLocation extends StatelessWidget {
                         onPressed: () {},
                       ),
                     ),
+                    SizedBox(height: screenHeight * 0.02),
                   ],
                 ),
               ),

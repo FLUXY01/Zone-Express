@@ -35,4 +35,19 @@ class TImage {
   static const String delivered_dash =
       'assets/images/dashboard_user_img/delivered_dash.png';
   static const String box = 'assets/images/dashboard_user_img/box.png';
+
+  ///Order
+  static const String envelope = "assets/images/order/envelope.png";
+  static const String carton = "assets/images/order/carton.png";
+  static const String luggage = "assets/images/order/luggage.png";
+  static const String bagpack = "assets/images/order/bagpack.png";
+  static const String book = "assets/images/order/Book.png";
+  static const String phone = "assets/images/order/smartphone.png";
+  static const String clothes = "assets/images/order/shirt.png";
+  static const String food = "assets/images/order/food.png";
+  static const String lid = "assets/images/order/lid.png";
+  static const String football = "assets/images/order/football.png";
+  static const String fruit = "assets/images/order/fruit.png";
+  static const String passport = "assets/images/order/passport.png";
+  static const String hemp = "assets/images/order/hemp.png";
 }

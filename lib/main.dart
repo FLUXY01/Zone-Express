@@ -9,7 +9,7 @@ Future<void> main() async {
 
   // ✅ Load environment variables
   await dotenv.load(fileName: ".env");
-
+  print("API key loaded: ${dotenv.env['GOOGLE_MAPS_API_KEY']}");
   // ✅ Run the app after .env is loaded
   runApp(GetMaterialApp(home: WelcomeScreen()));
 }

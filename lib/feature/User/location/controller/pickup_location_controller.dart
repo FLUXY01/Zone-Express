@@ -17,8 +17,7 @@ class PickupLocationController extends GetxController {
   var suggestions = <String>[].obs; // 🔹 For dropdown suggestions
   Timer? _debounce;
 
-  final String googleApiKey =
-      dotenv.env['GOOGLE_MAPS_API_KEY'] ?? ''; // 🔑 your key here
+  String get googleApiKey => dotenv.env['GOOGLE_MAPS_API_KEY'] ?? '';
 
   @override
   void onInit() {
@@ -65,6 +64,7 @@ class PickupLocationController extends GetxController {
         latlng,
         googleApiKey,
       );
+      print("Geocode response: ${response.data}");
 
       if (response.response.statusCode == 200) {
         final data = response.data;
@@ -129,8 +129,9 @@ class PickupLocationController extends GetxController {
       final response = await apiService.getPlaceSuggestions(
         input,
         googleApiKey,
-        "country:in", // optional
+        "country:in",
       );
+      print("Autocomplete response: ${response.data}");
 
       if (response.response.statusCode == 200) {
         final data = response.data;

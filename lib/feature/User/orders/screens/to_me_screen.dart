@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:zone_express/feature/User/dashboard/widget/dashboard_container.dart';
-import 'package:zone_express/feature/User/orders/screens/package_details.dart';
+import 'package:zone_express/feature/User/orders/screens/address_details.dart';
 import 'package:zone_express/feature/User/orders/widget/button_row.dart';
 import '../../../../utils/constants/font.dart';
 
@@ -115,7 +115,7 @@ class _ToMeScreenState extends State<ToMeScreen> {
                           GestureDetector(
                             child: DashCard(
                               onTap: () {
-                                Get.to(() => const PackageDetails());
+                                Get.to(() => const AddressDetails());
                               },
                             ),
                           ),

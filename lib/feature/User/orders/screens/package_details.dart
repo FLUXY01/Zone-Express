@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:zone_express/common/common_button_grey.dart';
-import 'package:zone_express/feature/User/orders/widget/address_button.dart';
-
-import '../../../../utils/constants/font.dart';
-import '../widget/address_bottom_sheet.dart';
+import 'package:zone_express/utils/constants/font.dart';
+import '../../../../utils/constants/images.dart';
+import '../widget/package_content_selector.dart';
+import '../widget/secure_package_section.dart';
 import '../widget/step_progress.dart';
+import '../widget/package_type_selector.dart';
+import '../widget/package_size_selector.dart';
 
 class PackageDetails extends StatefulWidget {
   const PackageDetails({super.key});
@@ -14,12 +15,16 @@ class PackageDetails extends StatefulWidget {
 }
 
 class _PackageDetailsState extends State<PackageDetails> {
-  int currentStep = 0; // Start at ADDRESS
+  int currentStep = 1;
+  String selectedType = "";
+  String selectedSize = "";
+  List<String> selectedContents = [];
 
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -35,100 +40,83 @@ class _PackageDetailsState extends State<PackageDetails> {
       ),
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(8),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Step Progress Bar
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: StepProgress(currentStep: currentStep),
               ),
               Divider(color: Colors.grey.shade300, thickness: 1),
               SizedBox(height: screenHeight * 0.02),
+
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: Text(
-                  "Pickup Address",
+                  "Describe Your Package",
                   style: TextStyle(
                     fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.grey.shade800,
-                    fontFamily: Tfonts.plusJakartaSansFont,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black87,
+                    fontFamily: Tfonts.workSansFont,
                   ),
                 ),
               ),
               SizedBox(height: screenHeight * 0.02),
-              SizedBox(
-                width: double.infinity,
-                child: AddressButton(
-                  onPressed: () {
-                    _openAddressBottomSheet(context, isPickup: true);
+
+              // 📦 Package Type Selection
+              PackageTypeSelector(
+                selectedType: selectedType,
+                onTypeSelected: (type) {
+                  setState(() {
+                    selectedType = type;
+                    selectedSize = "";
+                    selectedContents.clear();
+                  });
+                },
+              ),
+
+              // 📏 Package Size Selection
+              if (selectedType == "Envelope" ||
+                  selectedType == "Box" ||
+                  selectedType == "Bagpack") ...[
+                PackageSizeSelector(
+                  selectedType: selectedType,
+                  selectedSize: selectedSize,
+                  onSizeSelected: (size) {
+                    setState(() {
+                      selectedSize = size;
+                      selectedContents.clear();
+                    });
                   },
-                  icon: Icon(Icons.card_giftcard, color: Colors.grey.shade600),
-                  label: Text(
-                    "Add Pickup Address",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.grey.shade800,
-                      fontFamily: Tfonts.workSansFont,
-                    ),
-                  ),
                 ),
-              ),
-              SizedBox(height: screenHeight * 0.01),
-              SizedBox(height: screenHeight * 0.02),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: Text(
-                  "Delivery Address",
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.grey.shade800,
-                    fontFamily: Tfonts.plusJakartaSansFont,
+
+                // 🎒 Package Contents Selection
+                if (selectedType == "Envelope" && selectedSize.isNotEmpty)
+                  PackageContentsSelector(
+                    selectedSize: selectedSize,
+                    selectedContents: selectedContents,
+                    onContentToggled: (content) {
+                      setState(() {
+                        if (selectedContents.contains(content)) {
+                          selectedContents.remove(content);
+                        } else {
+                          selectedContents.add(content);
+                        }
+                      });
+                    },
                   ),
-                ),
-              ),
-              SizedBox(height: screenHeight * 0.02),
-              SizedBox(
-                width: double.infinity,
-                child: AddressButton(
-                  onPressed: () {
-                    _openAddressBottomSheet(context, isPickup: false);
-                  },
-                  icon: Icon(
-                    Icons.location_on_outlined,
-                    color: Colors.grey.shade600,
-                  ),
-                  label: Text(
-                    "Add Delivery Address",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.grey.shade800,
-                      fontFamily: Tfonts.workSansFont,
-                    ),
-                  ),
-                ),
-              ),
+              ],
+              if (selectedContents.isNotEmpty) ...[
+                SizedBox(height: screenHeight * 0.03),
+                const SecurePackageSection(),
+              ],
             ],
           ),
         ),
       ),
-    );
-  }
-
-  void _openAddressBottomSheet(BuildContext context, {required bool isPickup}) {
-    showModalBottomSheet(
-      context: context,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-      ),
-      backgroundColor: Colors.white,
-      builder: (context) => AddressBottomSheet(isPickup: isPickup),
     );
   }
 }
