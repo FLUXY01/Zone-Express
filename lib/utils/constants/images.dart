@@ -50,4 +50,5 @@ class TImage {
   static const String fruit = "assets/images/order/fruit.png";
   static const String passport = "assets/images/order/passport.png";
   static const String hemp = "assets/images/order/hemp.png";
+  static const String reference = "assets/images/order/height_reference.png";
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zone_express/feature/User/orders/widget/suitcase_content.dart';
 import 'package:zone_express/utils/constants/font.dart';
 import '../../../../utils/constants/images.dart';
 import '../widget/package_content_selector.dart';
@@ -23,7 +24,6 @@ class _PackageDetailsState extends State<PackageDetails> {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
-    final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       appBar: AppBar(
@@ -45,6 +45,7 @@ class _PackageDetailsState extends State<PackageDetails> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // 🔹 Step Progress
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: StepProgress(currentStep: currentStep),
@@ -52,6 +53,7 @@ class _PackageDetailsState extends State<PackageDetails> {
               Divider(color: Colors.grey.shade300, thickness: 1),
               SizedBox(height: screenHeight * 0.02),
 
+              // 🔹 Section Title
               Padding(
                 padding: const EdgeInsets.only(left: 8.0),
                 child: Text(
@@ -66,7 +68,7 @@ class _PackageDetailsState extends State<PackageDetails> {
               ),
               SizedBox(height: screenHeight * 0.02),
 
-              // 📦 Package Type Selection
+              // 🔹 Package Type Selector
               PackageTypeSelector(
                 selectedType: selectedType,
                 onTypeSelected: (type) {
@@ -78,7 +80,7 @@ class _PackageDetailsState extends State<PackageDetails> {
                 },
               ),
 
-              // 📏 Package Size Selection
+              // 🔹 Package Size for Envelope, Box, Bagpack
               if (selectedType == "Envelope" ||
                   selectedType == "Box" ||
                   selectedType == "Bagpack") ...[
@@ -93,22 +95,55 @@ class _PackageDetailsState extends State<PackageDetails> {
                   },
                 ),
 
-                // 🎒 Package Contents Selection
-                if (selectedType == "Envelope" && selectedSize.isNotEmpty)
+                // 🔹 Contents for Envelope (any size) or Box (M)
+                if ((selectedType == "Envelope" && selectedSize.isNotEmpty) ||
+                    (selectedType == "Box" && selectedSize == "M"))
                   PackageContentsSelector(
                     selectedSize: selectedSize,
                     selectedContents: selectedContents,
-                    onContentToggled: (content) {
-                      setState(() {
-                        if (selectedContents.contains(content)) {
-                          selectedContents.remove(content);
-                        } else {
-                          selectedContents.add(content);
-                        }
-                      });
-                    },
+                    onContentToggled: toggleContent,
                   ),
+
+                // 🔹 For Box L and Suitcase
+                if ((selectedType == "Box" && selectedSize == "L")) ...[
+                  const SuitCaseContent(
+                    imagePath: TImage.reference,
+                  ),
+                  SizedBox(height: screenHeight * 0.02),
+                  PackageContentsSelector(
+                    selectedSize: selectedSize,
+                    selectedContents: selectedContents,
+                    onContentToggled: toggleContent,
+                  ),
+                ],
+                if ((selectedType == "Bagpack" && selectedSize == "M")) ...[
+                  SizedBox(height: screenHeight * 0.02),
+                  PackageContentsSelector(
+                    selectedSize: selectedSize,
+                    selectedContents: selectedContents,
+                    onContentToggled: toggleContent,
+                  ),
+                ],
+                if ((selectedType == "Bagpack" && selectedSize == "L")) ...[
+                  const SuitCaseContent(),
+                  SizedBox(height: screenHeight * 0.02),
+                  PackageContentsSelector(
+                    selectedSize: selectedSize,
+                    selectedContents: selectedContents,
+                    onContentToggled: toggleContent,
+                  ),
+                ],
               ],
+              if (selectedType == "Suitcase") ...[
+                const SuitCaseContent(imagePath: TImage.reference),
+                SizedBox(height: screenHeight * 0.02),
+                PackageContentsSelector(
+                  selectedSize: "",
+                  selectedContents: selectedContents,
+                  onContentToggled: toggleContent,
+                ),
+              ],
+              // 🔹 Secure Section
               if (selectedContents.isNotEmpty) ...[
                 SizedBox(height: screenHeight * 0.03),
                 const SecurePackageSection(),
@@ -118,5 +153,16 @@ class _PackageDetailsState extends State<PackageDetails> {
         ),
       ),
     );
+  }
+
+  // Toggle selection logic
+  void toggleContent(String content) {
+    setState(() {
+      if (selectedContents.contains(content)) {
+        selectedContents.remove(content);
+      } else {
+        selectedContents.add(content);
+      }
+    });
   }
 }

@@ -34,6 +34,7 @@ class SecurePackageSection extends StatelessWidget {
         ),
         SizedBox(height: screenHeight * 0.015),
         Divider(color: Colors.grey.shade300, thickness: 2),
+        SizedBox(height: screenHeight * 0.02),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: Text(

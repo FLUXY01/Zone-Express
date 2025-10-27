@@ -66,10 +66,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
           fontWeight: FontWeight.w500,
         ),
         filled: true,
-        fillColor: Colors.grey.shade100,
+        fillColor: Colors.white,
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Colors.grey.shade300, width: 1.2),
+          borderSide: BorderSide(color: Colors.grey.shade400, width: 1.2),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
