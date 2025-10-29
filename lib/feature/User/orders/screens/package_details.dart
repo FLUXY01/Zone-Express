@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zone_express/common/custom_textfield.dart';
 import 'package:zone_express/feature/User/orders/widget/suitcase_content.dart';
 import 'package:zone_express/utils/constants/font.dart';
 import '../../../../utils/constants/images.dart';
@@ -20,6 +21,7 @@ class _PackageDetailsState extends State<PackageDetails> {
   String selectedType = "";
   String selectedSize = "";
   List<String> selectedContents = [];
+  final TextEditingController othersController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -81,9 +83,22 @@ class _PackageDetailsState extends State<PackageDetails> {
               ),
 
               // 🔹 Package Size for Envelope, Box, Bagpack
+              // 🔹 Package Size for Envelope, Box, Bagpack, Others
               if (selectedType == "Envelope" ||
                   selectedType == "Box" ||
-                  selectedType == "Bagpack") ...[
+                  selectedType == "Bagpack" ||
+                  selectedType == "others") ...[
+                // 🟢 Show Custom TextField FIRST for "others"
+                if (selectedType == "others") ...[
+                  SizedBox(height: screenHeight * 0.03),
+                  CustomTextField(
+                    labelText: "ex: Kitchen Equipment",
+                    controller: othersController,
+                  ),
+                  SizedBox(height: screenHeight * 0.01),
+                ],
+
+                // 🟢 Then show package size options
                 PackageSizeSelector(
                   selectedType: selectedType,
                   selectedSize: selectedSize,
@@ -106,9 +121,7 @@ class _PackageDetailsState extends State<PackageDetails> {
 
                 // 🔹 For Box L and Suitcase
                 if ((selectedType == "Box" && selectedSize == "L")) ...[
-                  const SuitCaseContent(
-                    imagePath: TImage.reference,
-                  ),
+                  const SuitCaseContent(imagePath: TImage.reference),
                   SizedBox(height: screenHeight * 0.02),
                   PackageContentsSelector(
                     selectedSize: selectedSize,
@@ -139,6 +152,22 @@ class _PackageDetailsState extends State<PackageDetails> {
                 SizedBox(height: screenHeight * 0.02),
                 PackageContentsSelector(
                   selectedSize: "",
+                  selectedContents: selectedContents,
+                  onContentToggled: toggleContent,
+                ),
+              ],
+              if (selectedType == "others" && selectedSize == "XS" ||
+                  selectedSize == "S") ...[
+                PackageContentsSelector(
+                  selectedSize: selectedSize,
+                  selectedContents: selectedContents,
+                  onContentToggled: toggleContent,
+                ),
+              ],
+              if (selectedType == "others" && selectedSize == "L") ...[
+                const SuitCaseContent(),
+                PackageContentsSelector(
+                  selectedSize: selectedSize,
                   selectedContents: selectedContents,
                   onContentToggled: toggleContent,
                 ),

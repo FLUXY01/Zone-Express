@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_vector_icons/flutter_vector_icons.dart';
+import 'package:get/get.dart';
 import 'package:zone_express/common/comm_button_yellow.dart';
 import 'package:zone_express/common/custom_textfield.dart';
+import 'package:zone_express/feature/User/orders/screens/schedule_details.dart';
 import 'package:zone_express/utils/constants/images.dart';
 import '../../../../utils/constants/font.dart';
 
@@ -138,7 +139,12 @@ class SecurePackageSection extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: SizedBox(
             width: double.infinity,
-            child: CommonButtonYellow(label: "Next", onPressed: () {}),
+            child: CommonButtonYellow(
+              label: "Next",
+              onPressed: () {
+                Get.to(() => ScheduleDetails());
+              },
+            ),
           ),
         ),
         SizedBox(height: screenHeight * 0.02),

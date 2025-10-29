@@ -17,7 +17,7 @@ class PackageSizeSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
-
+    final screenWidth = MediaQuery.of(context).size.width;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -35,40 +35,91 @@ class PackageSizeSelector extends StatelessWidget {
           ),
         ),
         SizedBox(height: screenHeight * 0.02),
-        Row(
-          children: [
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: PackageSizeCard(
-                  label: selectedType == "Envelope" ? "XS" : "M",
-                  weightRange: selectedType == "Envelope"
-                      ? "upto 0.5 KG"
-                      : "0.5 KG - 2 KG",
-                  isSelected:
-                      selectedSize == (selectedType == "Envelope" ? "XS" : "M"),
-                  onTap: () =>
-                      onSizeSelected(selectedType == "Envelope" ? "XS" : "M"),
+
+        // 🔹 Conditional logic
+        if (selectedType == "others")
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: PackageSizeCard(
+                        label: "XS",
+                        weightRange: "upto 0.5 KG",
+                        isSelected: selectedSize == "XS",
+                        onTap: () => onSizeSelected("XS"),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 8.0),
+                      child: PackageSizeCard(
+                        label: "S",
+                        weightRange: "0.5 KG - 2 KG",
+                        isSelected: selectedSize == "S",
+                        onTap: () => onSizeSelected("S"),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: screenHeight * 0.015),
+              SizedBox(
+                height: screenHeight * 0.11,
+                width: screenWidth * 0.5,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: PackageSizeCard(
+                    label: "L",
+                    weightRange: "2+ KG",
+                    isSelected: selectedSize == "L",
+                    onTap: () => onSizeSelected("L"),
+                  ),
                 ),
               ),
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(left: 8.0),
-                child: PackageSizeCard(
-                  label: selectedType == "Envelope" ? "S" : "L",
-                  weightRange: selectedType == "Envelope"
-                      ? "0.5 KG - 2 KG"
-                      : "2+ KG",
-                  isSelected:
-                      selectedSize == (selectedType == "Envelope" ? "S" : "L"),
-                  onTap: () =>
-                      onSizeSelected(selectedType == "Envelope" ? "S" : "L"),
+            ],
+          )
+        else
+          Row(
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: PackageSizeCard(
+                    label: selectedType == "Envelope" ? "XS" : "M",
+                    weightRange: selectedType == "Envelope"
+                        ? "upto 0.5 KG"
+                        : "0.5 KG - 2 KG",
+                    isSelected:
+                        selectedSize ==
+                        (selectedType == "Envelope" ? "XS" : "M"),
+                    onTap: () =>
+                        onSizeSelected(selectedType == "Envelope" ? "XS" : "M"),
+                  ),
                 ),
               ),
-            ),
-          ],
-        ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: PackageSizeCard(
+                    label: selectedType == "Envelope" ? "S" : "L",
+                    weightRange: selectedType == "Envelope"
+                        ? "0.5 KG - 2 KG"
+                        : "2+ KG",
+                    isSelected:
+                        selectedSize ==
+                        (selectedType == "Envelope" ? "S" : "L"),
+                    onTap: () =>
+                        onSizeSelected(selectedType == "Envelope" ? "S" : "L"),
+                  ),
+                ),
+              ),
+            ],
+          ),
       ],
     );
   }
