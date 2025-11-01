@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:zone_express/common/comm_button_yellow.dart';
 import 'package:zone_express/common/custom_textfield.dart';
 import 'package:zone_express/feature/User/orders/screens/schedule_details.dart';
+import 'package:zone_express/feature/User/orders/widget/restricted_items_bottomsheet.dart';
 import 'package:zone_express/utils/constants/images.dart';
 import '../../../../utils/constants/font.dart';
 
@@ -100,13 +101,23 @@ class SecurePackageSection extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            Text(
-              "Show All",
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-                color: Colors.blueAccent,
-                fontFamily: Tfonts.workSansFont,
+            GestureDetector(
+              onTap: () {
+                showModalBottomSheet(
+                  context: context,
+                  isScrollControlled: true,
+                  backgroundColor: Colors.transparent,
+                  builder: (_) => const RestrictedItemsBottomSheet(),
+                );
+              },
+              child: Text(
+                "Show All",
+                style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.blueAccent,
+                  fontFamily: Tfonts.workSansFont,
+                ),
               ),
             ),
           ],

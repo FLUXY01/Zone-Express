@@ -47,6 +47,7 @@ flutter:
      - assets/video/intro_video/intro_zone_express.mp4
      - assets/images/account_img/
      - assets/images/order/
+     - assets/images/restricted_img/
      - .env
 
   fonts:

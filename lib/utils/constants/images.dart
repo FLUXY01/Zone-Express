@@ -51,4 +51,17 @@ class TImage {
   static const String passport = "assets/images/order/passport.png";
   static const String hemp = "assets/images/order/hemp.png";
   static const String reference = "assets/images/order/height_reference.png";
+
+  ///Restricted Items
+  static const String battery = "assets/images/restricted_img/battery.png";
+  static const String cheque = "assets/images/restricted_img/cheque.png";
+  static const String currency = "assets/images/restricted_img/currency.png";
+  static const String explosives =
+      "assets/images/restricted_img/explosives.png";
+  static const String gem = "assets/images/restricted_img/gem.png";
+  static const String liquor = "assets/images/restricted_img/liquor.png";
+  static const String military = "assets/images/restricted_img/military.png";
+  static const String poison = "assets/images/restricted_img/poison.png";
+  static const String ring = "assets/images/restricted_img/ring.png";
+  static const String solvent = "assets/images/restricted_img/solvent.png";
 }

@@ -17,7 +17,11 @@ class _DeliveryLocationState extends State<DeliveryLocation> {
   final saveAsController = Get.put(SaveAsController());
 
   final TextEditingController nameController = TextEditingController();
+  final TextEditingController mobileController = TextEditingController();
+  final TextEditingController streetController = TextEditingController();
+  final TextEditingController houseController = TextEditingController();
   final TextEditingController cityController = TextEditingController();
+  final TextEditingController pincodeController = TextEditingController();
   final TextEditingController stateController = TextEditingController();
 
   @override
@@ -55,7 +59,7 @@ class _DeliveryLocationState extends State<DeliveryLocation> {
               SizedBox(height: screenHeight * 0.03),
 
               buildLabel("Mobile Number"),
-              buildTextField("Enter mobile number", nameController),
+              buildTextField("Enter mobile number", mobileController),
               SizedBox(height: screenHeight * 0.01),
 
               Padding(
@@ -74,16 +78,16 @@ class _DeliveryLocationState extends State<DeliveryLocation> {
               buildLabel("Flat, Housing no., Building, Apartment"),
               buildTextField(
                 "Enter flat, housing no, building, apartment",
-                nameController,
+                houseController,
               ),
               SizedBox(height: screenHeight * 0.03),
 
               buildLabel("Area, street, sector"),
-              buildTextField("Enter area, street, sector", nameController),
+              buildTextField("Enter area, street, sector", streetController),
               SizedBox(height: screenHeight * 0.03),
 
               buildLabel("Pincode"),
-              buildTextField("Enter pincode", nameController),
+              buildTextField("Enter pincode", pincodeController),
               SizedBox(height: screenHeight * 0.03),
 
               Padding(

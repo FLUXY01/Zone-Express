@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:zone_express/feature/User/dashboard/widget/dashboard_container.dart';
+import 'package:zone_express/feature/User/dashboard/widget/track_order_container.dart';
 import 'package:zone_express/feature/User/get%20help/screens/get_help.dart';
 import 'package:zone_express/feature/User/location/screens/location_search_page.dart';
 import 'package:zone_express/feature/User/orders/screens/address_details.dart';
@@ -165,11 +166,7 @@ class _DashboardScreenUserState extends State<DashboardScreenUser> {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 12,
-                  ),
-                  height: screenHeight * 0.23,
+                  padding: const EdgeInsets.symmetric(vertical: 20),
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -186,61 +183,20 @@ class _DashboardScreenUserState extends State<DashboardScreenUser> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        "can't find your delivery?",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.black87,
-                          fontFamily: Tfonts.plusJakartaSansFont,
-                        ),
-                      ),
-                      Text(
-                        "Find your delivery using your Order ID",
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xFF9E8F47),
-                          fontFamily: Tfonts.plusJakartaSansFont,
-                        ),
-                      ),
-                      SizedBox(height: screenHeight * 0.02),
-                      Text(
-                        "Order ID",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.black87,
-                          fontFamily: Tfonts.plusJakartaSansFont,
-                        ),
-                      ),
-                      SizedBox(height: screenHeight * 0.02),
-                      TextField(
-                        decoration: InputDecoration(
-                          hintText: "Enter your Order ID",
-                          hintStyle: TextStyle(
-                            color: Colors.grey[400],
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          "Can't find your delivery?",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w800,
+                            color: Colors.black87,
                             fontFamily: Tfonts.plusJakartaSansFont,
                           ),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide: BorderSide(color: Colors.grey.shade300),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            borderSide: BorderSide(color: Colors.grey.shade400),
-                          ),
-                          contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 8,
-                          ),
-                          suffixIcon: Icon(
-                            Icons.arrow_forward_ios_rounded,
-                            color: Colors.grey[700],
-                            size: 20,
-                          ),
                         ),
                       ),
+                      SizedBox(height: screenHeight * 0.02),
+                      const TrackOrderContainer(),
                     ],
                   ),
                 ),
